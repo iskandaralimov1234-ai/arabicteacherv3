@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madina Arabic - Project Roadmap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+            --emerald: #10b981;
+            --amber: #f59e0b;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 40px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #fff 0%, #555 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            color: #888;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .roadmap {
+            position: relative;
+            padding-left: 40px;
+            border-left: 2px solid var(--border);
+        }
+
+        .stage {
+            position: relative;
+            margin-bottom: 60px;
+            padding: 30px;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+
+        .stage:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .stage::before {
+            content: '';
+            position: absolute;
+            left: -42px;
+            top: 40px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border);
+            border: 4px solid var(--bg);
+        }
+
+        .stage.done::before {
+            background: var(--emerald);
+            box-shadow: 0 0 20px var(--emerald);
+        }
+
+        .stage.current::before {
+            background: var(--amber);
+            box-shadow: 0 0 20px var(--amber);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .badge.done { background: rgba(16, 185, 129, 0.1); color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.2); }
+        .badge.current { background: rgba(245, 158, 11, 0.1); color: var(--amber); border: 1px solid rgba(245, 158, 11, 0.2); }
+        .badge.todo { background: rgba(255, 255, 255, 0.05); color: #666; border: 1px solid var(--border); }
+
+        h2 { font-size: 1.8rem; margin: 0 0 10px 0; }
+        p.desc { color: #888; line-height: 1.6; margin-bottom: 20px; }
+
+        .tasks-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .task {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #ccc;
+            font-size: 0.95rem;
+        }
+
+        .task.completed { color: #666; text-decoration: line-through; }
+
+        .check {
+            width: 18px;
+            height: 18px;
+            margin-right: 12px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            font-size: 12px;
+        }
+
+        .task.completed .check { background: var(--emerald); border-color: var(--emerald); color: white; }
+
+        .progress-container {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            text-align: right;
+        }
+
+        .progress-radial {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: conic-gradient(var(--emerald) 15%, #222 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .progress-inner {
+            width: 65px;
+            height: 65px;
+            background: var(--bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p>Текущий статус разработки</p>
+            <h1>Madina Arabic Pro Max</h1>
+        </div>
+
+        <div class="roadmap">
+            <!-- STAGE 1 -->
+            <div class="stage done">
+                <span class="badge done">Завершено</span>
+                <h2>Этап 1: Фундамент и Стандарт</h2>
+                <p class="desc">Разработка ядра приложения, интерактивной карты (Mind Map) и внедрение стандарта качества "Pro Max".</p>
+                <div class="tasks-list">
+                    <div class="task completed"><span class="check">✓</span> Архитектура Next.js + Tailwind</div>
+                    <div class="task completed"><span class="check">✓</span> Компоненты Quiz и Learning Path</div>
+                    <div class="task completed"><span class="check">✓</span> Стандарт качества содержания (Методика Madina)</div>
+                    <div class="task completed"><span class="check">✓</span> Интеграция звуковых эффектов</div>
+                </div>
+            </div>
+
+            <!-- STAGE 2 -->
+            <div class="stage current">
+                <span class="badge current">В процессе</span>
+                <h2>Этап 2: Книга 1 (Уроки 1-23)</h2>
+                <p class="desc">Перевод всех уроков первой книги на стандарт Pro Max: транслитерация, глубокая теория и по 5+ заданий на урок.</p>
+                <div class="tasks-list">
+                    <div class="task completed"><span class="check">✓</span> Уроки 1-5: Полный апгрейд (Pro Max)</div>
+                    <div class="task"><span class="check"></span> Уроки 6-10: Добавление интерактивных заданий (сейчас по 1-2)</div>
+                    <div class="task"><span class="check"></span> Уроки 11-23: Оцифровка теории и создание квизов</div>
+                </div>
+            </div>
+
+            <!-- STAGE 3 -->
+            <div class="stage">
+                <span class="badge todo">Ожидание</span>
+                <h2>Этап 3: Книга 2 (Уроки 24-54)</h2>
+                <p class="desc">Глаголы, сложные грамматические конструкции и расширенный вокабуляр.</p>
+                <div class="tasks-list">
+                    <div class="task"><span class="check"></span> Наполнение базы данных `curriculum.ts`</div>
+                    <div class="task"><span class="check"></span> Генерация заданий на спряжение глаголов</div>
+                </div>
+            </div>
+
+            <!-- STAGE 4 -->
+            <div class="stage">
+                <span class="badge todo">Ожидание</span>
+                <h2>Этап 4: Книга 3 (Уроки 55-88)</h2>
+                <p class="desc">Породы глаголов, синтаксис Корана и продвинутая красноречивость.</p>
+                <div class="tasks-list">
+                    <div class="task"><span class="check"></span> Финальная оцифровка последнего тома</div>
+                    <div class="task"><span class="check"></span> Режим "Мастерства" для продвинутых учеников</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="progress-container">
+            <div style="color: #666; margin-bottom: 15px; font-weight: bold; letter-spacing: 1px;">ОБЩИЙ ПРОГРЕСС</div>
+            <div class="progress-radial">
+                <div class="progress-inner">15%</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
