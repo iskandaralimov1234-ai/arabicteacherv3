@@ -2,20 +2,21 @@
 
 import { motion } from "framer-motion";
 import { Lock, Star, Check, BookOpen } from "lucide-react";
-import { madinaCurriculum } from "../data/curriculum";
+import { Lesson } from "../data/types";
 
 interface LearningPathProps {
     currentLessonId: number;
     completedLessons: number[];
     onSelectLesson: (id: number) => void;
+    curriculum: Lesson[];
 }
 
-export default function LearningPath({ currentLessonId, completedLessons, onSelectLesson }: LearningPathProps) {
+export default function LearningPath({ currentLessonId, completedLessons, onSelectLesson, curriculum }: LearningPathProps) {
     // We simulate 88 lessons by creating a list based on the curriculum + placeholders
     const totalLessons = 88;
     const pathItems = Array.from({ length: totalLessons }, (_, i) => {
         const id = i + 1;
-        const data = madinaCurriculum.find(l => l.id === id);
+        const data = curriculum.find(l => l.id === id);
         const isCompleted = completedLessons.includes(id);
         // DEV MODE: All lessons unlocked for testing
         const isLocked = false;

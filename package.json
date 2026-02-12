@@ -1,17 +1,19 @@
 {
-  "name": "lingaquest",
+  "name": "madinahquest",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "validate:data": "python validate_data.py"
   },
   "dependencies": {
     "framer-motion": "^12.31.1",
     "lucide-react": "^0.563.0",
     "next": "16.1.6",
+    "next-intl": "^4.8.2",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },

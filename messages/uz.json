@@ -1,0 +1,44 @@
+{
+    "nav": {
+        "home": "Bosh sahifa",
+        "path": "Yo'l",
+        "profile": "Profil",
+        "sync": "Sinxronlash"
+    },
+    "home": {
+        "hero": {
+            "title": "Arab tilini o'rganing",
+            "subtitle": "Sarguzasht orqali",
+            "description": "Madina universiteti kursining raqamlashgan va o'yinga aylantirilgan tajribasi. Interaktiv missiyalar orqali noldan ravon nutqqacha.",
+            "start": "1-darsni boshlash",
+            "mission_card": {
+                "title": "Missiya: 1-dars",
+                "construct": "Konstruksiya: 'Bu uy'",
+                "demo": "Demo uchun bosing"
+            }
+        },
+        "journey": {
+            "title": "Sizning yo'lingiz",
+            "subtitle": "Arab tili sirlarini ochish uchun barcha 88 darsni o'zlashtiring."
+        },
+        "methodology": {
+            "title": "Metodologiya",
+            "subtitle": "Biz Madina universiteti o'quv dasturining 88 darsini interaktiv va boshqariladigan bosqichlarga ajratdik.",
+            "features": {
+                "theory": {
+                    "title": "Nazariya va amaliyot",
+                    "desc": "Avval qoidalarni tushunarli tushuntirishlar bilan o'rganing, so'ngra ularni testlarda mustahkamlang."
+                },
+                "interactive": {
+                    "title": "Interaktiv mahorat",
+                    "desc": "Har bir dars sho'ng'ish uchun yaratilgan bo'lib, arab tili tuzilmalarini tezda o'zlashtirishga yordam beradi."
+                },
+                "smart": {
+                    "title": "Aqlli yo'l",
+                    "desc": "Barcha 88 darsning individual kuzatuvi. Aqlli vosita yordamida xatolaringizni avtomatik tahlil qiling."
+                }
+            }
+        },
+        "footer": "© 2026 LingaQuest. Madina arab tili kursini o'zlashtiring."
+    }
+}

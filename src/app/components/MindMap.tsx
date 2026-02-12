@@ -3,12 +3,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Compass, ZoomIn, ArrowLeft, Lock, CheckCircle2, Star } from "lucide-react";
-import { madinaCurriculum, Lesson } from "../data/curriculum";
+
+import { Lesson } from "../data/types";
 
 interface MindMapProps {
     completedLessons: number[];
     onSelectLesson: (id: number) => void;
     onBack: () => void;
+    curriculum: Lesson[];
 }
 
 const ISLANDS = [
@@ -46,7 +48,7 @@ const ISLANDS = [
     }
 ];
 
-export default function MindMap({ completedLessons, onSelectLesson, onBack }: MindMapProps) {
+export default function MindMap({ completedLessons, onSelectLesson, onBack, curriculum }: MindMapProps) {
     const [view, setView] = useState<"islands" | "zoom">("islands");
     const [selectedIsland, setSelectedIsland] = useState<typeof ISLANDS[0] | null>(null);
 
@@ -80,7 +82,7 @@ export default function MindMap({ completedLessons, onSelectLesson, onBack }: Mi
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl w-full">
                             {ISLANDS.map((island) => {
-                                const lessonsInIsland = madinaCurriculum.filter(
+                                const lessonsInIsland = curriculum.filter(
                                     (l: Lesson) => l.id >= island.lessonRange[0] && l.id <= island.lessonRange[1]
                                 );
                                 const completedInIsland = lessonsInIsland.filter((l: Lesson) => isLessonCompleted(l.id)).length;
@@ -146,7 +148,7 @@ export default function MindMap({ completedLessons, onSelectLesson, onBack }: Mi
 
                         {/* Force Graph Like Layout (Simplified Grid for now but with connecting lines logic) */}
                         <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4 py-8">
-                            {madinaCurriculum
+                            {curriculum
                                 .filter((l: Lesson) => l.id >= selectedIsland!.lessonRange[0] && l.id <= selectedIsland!.lessonRange[1])
                                 .map((lesson: Lesson, idx: number) => {
                                     const completed = isLessonCompleted(lesson.id);

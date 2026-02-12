@@ -1,0 +1,44 @@
+{
+    "nav": {
+        "home": "Home",
+        "path": "Path",
+        "profile": "Profile",
+        "sync": "Sync Progress"
+    },
+    "home": {
+        "hero": {
+            "title": "Master Arabic",
+            "subtitle": "Through Quest",
+            "description": "A digitized and gamified experience of the famous Madina Arabic curriculum. From zero to fluency through interactive missions.",
+            "start": "Begin Lesson 1",
+            "mission_card": {
+                "title": "Mission: Lesson 1",
+                "construct": "Construct: 'This is a house'",
+                "demo": "Click to try interactive demo"
+            }
+        },
+        "journey": {
+            "title": "Your Journey",
+            "subtitle": "Master all 88 lessons to unlock the secrets of the Arabic language."
+        },
+        "methodology": {
+            "title": "The Methodology",
+            "subtitle": "We've broken down the 88 lessons of the Madina University curriculum into interactive, manageable sprints.",
+            "features": {
+                "theory": {
+                    "title": "Theory & Practice",
+                    "desc": "Learn the rules first with clear explanations, then master them through high-stakes tests."
+                },
+                "interactive": {
+                    "title": "Interactive Mastery",
+                    "desc": "Every lesson is designed to be immersive, helping you internalize Arabic structures quickly."
+                },
+                "smart": {
+                    "title": "Smart Path",
+                    "desc": "Individual tracking for all 88 lessons. Review your mistakes automatically with the Smart Review tool."
+                }
+            }
+        },
+        "footer": "© 2026 LingaQuest. Master the 88 Lessons of Madina Arabic."
+    }
+}

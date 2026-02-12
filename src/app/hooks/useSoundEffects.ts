@@ -3,7 +3,8 @@
 const SOUNDS = {
     SUCCESS: 'https://assets.mixkit.co/active_storage/sfx/600/600-preview.mp3',
     ERROR: 'https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3',
-    CLICK: 'https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3'
+    CLICK: 'https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3',
+    APPLAUSE: '/sound/driken5482-applause-cheer-236786.mp3'
 };
 
 export const useSoundEffects = () => {
@@ -26,6 +27,7 @@ export const useSoundEffects = () => {
     return {
         playSuccess: () => playSound(SOUNDS.SUCCESS, 0.4),
         playError: () => playSound(SOUNDS.ERROR, 0.3),
-        playClick: () => playSound(SOUNDS.CLICK, 0.2)
+        playClick: () => playSound(SOUNDS.CLICK, 0.2),
+        playApplause: () => playSound(SOUNDS.APPLAUSE, 0.5)
     };
 };

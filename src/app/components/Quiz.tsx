@@ -2,17 +2,18 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Heart, CheckCircle2, XCircle, Trophy, ArrowRight, RefreshCw } from "lucide-react";
-import { Task, Lesson } from "../data/curriculum";
+import { Heart, CheckCircle2, XCircle, Trophy, ArrowRight, RefreshCw, Zap } from "lucide-react";
+import { Task, Lesson } from "../data/types";
 import { useSoundEffects } from "../hooks/useSoundEffects";
 
 interface QuizProps {
     lesson: Lesson;
     onComplete: (xp: number) => void;
+    onProgressXP?: (xp: number) => void;
     onExit: () => void;
 }
 
-export default function Quiz({ lesson, onComplete, onExit }: QuizProps) {
+export default function Quiz({ lesson, onComplete, onProgressXP, onExit }: QuizProps) {
     const [currentTaskIndex, setCurrentTaskIndex] = useState(0);
     const [hearts, setHearts] = useState(5);
     const [xp, setXp] = useState(0);
@@ -21,6 +22,7 @@ export default function Quiz({ lesson, onComplete, onExit }: QuizProps) {
     const [isAnswered, setIsAnswered] = useState(false);
     const [isCorrect, setIsCorrect] = useState(false);
     const [isFinished, setIsFinished] = useState(false);
+    const [floatingXp, setFloatingXp] = useState<{ id: number; x: number; y: number }[]>([]);
     const { playSuccess, playError, playClick } = useSoundEffects();
 
     const currentTask = lesson.tasks[currentTaskIndex];
@@ -61,6 +63,14 @@ export default function Quiz({ lesson, onComplete, onExit }: QuizProps) {
         if (correct) {
             playSuccess();
             setXp(prev => prev + 10);
+            if (onProgressXP) onProgressXP(10);
+
+            // Add floating XP animation
+            const id = Date.now();
+            setFloatingXp(prev => [...prev, { id, x: Math.random() * 100 - 50, y: Math.random() * 100 - 50 }]);
+            setTimeout(() => {
+                setFloatingXp(prev => prev.filter(item => item.id !== id));
+            }, 2000);
         } else {
             playError();
             setHearts(prev => Math.max(0, prev - 1));
@@ -112,8 +122,32 @@ export default function Quiz({ lesson, onComplete, onExit }: QuizProps) {
         );
     }
 
+    if (!currentTask) return null;
+
     return (
-        <div className="w-full max-w-2xl mx-auto glass p-8 rounded-3xl relative overflow-hidden">
+        <div className="w-full max-w-2xl mx-auto glass p-8 rounded-3xl relative">
+            <AnimatePresence>
+                {floatingXp.map(xpItem => (
+                    <motion.div
+                        key={xpItem.id}
+                        initial={{ opacity: 0, scale: 0.5, y: 0 }}
+                        animate={{
+                            opacity: 1,
+                            scale: 1,
+                            y: -50
+                        }}
+                        exit={{ opacity: 0 }}
+                        className="absolute left-1/2 -top-[10px] -translate-x-1/2 pointer-events-none z-[1000] flex items-center space-x-2 text-emerald-400 font-black text-4xl italic drop-shadow-[0_0_20px_rgba(52,211,153,0.5)] whitespace-nowrap"
+                        style={{
+                            marginLeft: xpItem.x
+                        }}
+                    >
+                        <Zap fill="currentColor" size={36} />
+                        <span>+10 XP</span>
+                    </motion.div>
+                ))}
+            </AnimatePresence>
+
             <div className="flex justify-between items-center mb-12">
                 <div className="flex space-x-1">
                     {[1, 2, 3, 4, 5].map((i) => (
