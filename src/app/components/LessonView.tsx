@@ -13,6 +13,21 @@ interface LessonViewProps {
 export default function LessonView({ lesson, onStartQuiz }: LessonViewProps) {
     const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
 
+    // Simple Markdown formatter for bold and italic text
+    const renderContent = (text: string) => {
+        // Split by bold (**text**) or italic (*text*)
+        const parts = text.split(/(\*\*.*?\*\*|\*.*?\*)/g);
+        return parts.map((part, i) => {
+            if (part.startsWith('**') && part.endsWith('**')) {
+                return <strong key={i} className="text-emerald-400 font-bold">{part.slice(2, -2)}</strong>;
+            }
+            if (part.startsWith('*') && part.endsWith('*')) {
+                return <em key={i} className="text-emerald-200 not-italic font-medium">{part.slice(1, -1)}</em>;
+            }
+            return part;
+        });
+    };
+
     const sections = lesson.theory.sections;
     const isStepByStep = sections && sections.length > 0;
 
@@ -66,7 +81,7 @@ export default function LessonView({ lesson, onStartQuiz }: LessonViewProps) {
 
                     <div className="bg-emerald-900/10 border border-emerald-500/20 p-6 rounded-2xl mb-8">
                         <div className="text-lg md:text-xl text-neutral-300 leading-relaxed whitespace-pre-wrap">
-                            {theoryText}
+                            {renderContent(theoryText)}
                         </div>
                     </div>
 

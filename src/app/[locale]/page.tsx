@@ -237,28 +237,30 @@ export default function Home() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[60] bg-[#0a0a0a] flex items-center justify-center p-6 overflow-y-auto"
+                        className="fixed inset-0 z-[60] bg-[#0a0a0a] overflow-y-auto overflow-x-hidden"
                     >
-                        <button
-                            onClick={() => setActiveLesson(null)}
-                            className="absolute top-8 right-8 z-[70] text-neutral-500 hover:text-white transition-colors p-2 hover:bg-neutral-900 rounded-full"
-                        >
-                            <X size={32} />
-                        </button>
-                        <div className="w-full max-w-4xl pt-20 pb-10">
-                            {phase === 'theory' ? (
-                                <LessonView
-                                    lesson={lessonData}
-                                    onStartQuiz={() => setPhase('quiz')}
-                                />
-                            ) : (
-                                <Quiz
-                                    lesson={lessonData}
-                                    onComplete={handleLessonComplete}
-                                    onProgressXP={handleProgressXP}
-                                    onExit={() => setActiveLesson(null)}
-                                />
-                            )}
+                        <div className="min-h-full flex flex-col items-center justify-center p-4 md:p-6">
+                            <button
+                                onClick={() => setActiveLesson(null)}
+                                className="fixed top-4 right-4 md:top-8 md:right-8 z-[70] bg-neutral-900/80 backdrop-blur-md text-neutral-400 hover:text-white transition-all p-3 rounded-full border border-white/10 hover:border-emerald-500 hover:glow shadow-2xl"
+                            >
+                                <X size={24} className="md:w-8 md:h-8" />
+                            </button>
+                            <div className="w-full max-w-4xl pt-16 md:pt-10 pb-10 relative">
+                                {phase === 'theory' ? (
+                                    <LessonView
+                                        lesson={lessonData}
+                                        onStartQuiz={() => setPhase('quiz')}
+                                    />
+                                ) : (
+                                    <Quiz
+                                        lesson={lessonData}
+                                        onComplete={handleLessonComplete}
+                                        onProgressXP={handleProgressXP}
+                                        onExit={() => setActiveLesson(null)}
+                                    />
+                                )}
+                            </div>
                         </div>
                     </motion.div>
                 )}
