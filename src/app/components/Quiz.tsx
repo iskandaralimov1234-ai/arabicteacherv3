@@ -148,8 +148,8 @@ export default function Quiz({ lesson, onComplete, onProgressXP, onExit }: QuizP
                 ))}
             </AnimatePresence>
 
-            <div className="flex justify-between items-center mb-12">
-                <div className="flex space-x-1">
+            <div className="flex flex-col md:flex-row justify-between items-center mb-6 md:mb-12 gap-4">
+                <div className="flex space-x-1 w-full md:w-auto justify-center">
                     {[1, 2, 3, 4, 5].map((i) => (
                         <Heart
                             key={i}
@@ -160,7 +160,7 @@ export default function Quiz({ lesson, onComplete, onProgressXP, onExit }: QuizP
                         />
                     ))}
                 </div>
-                <div className="bg-neutral-800 h-2 w-32 rounded-full overflow-hidden">
+                <div className="hidden md:block bg-neutral-800 h-2 w-32 rounded-full overflow-hidden">
                     <motion.div
                         className="bg-emerald-500 h-full"
                         initial={{ width: 0 }}
@@ -178,11 +178,11 @@ export default function Quiz({ lesson, onComplete, onProgressXP, onExit }: QuizP
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
-                    className="mb-12"
+                    className="mb-8 md:mb-12"
                 >
-                    <h3 className="text-neutral-400 text-sm uppercase tracking-widest font-bold mb-4">{currentTask.question}</h3>
+                    <h3 className="text-neutral-400 text-xs md:text-sm uppercase tracking-widest font-bold mb-4">{currentTask.question}</h3>
                     {currentTask.arabic && (
-                        <div className="text-5xl text-right font-arabic mb-12 leading-relaxed" dir="rtl">
+                        <div className="text-3xl md:text-5xl text-right font-arabic mb-6 md:mb-12 leading-relaxed" dir="rtl">
                             {currentTask.arabic}
                         </div>
                     )}
@@ -193,7 +193,7 @@ export default function Quiz({ lesson, onComplete, onProgressXP, onExit }: QuizP
                                 <button
                                     key={option}
                                     onClick={() => handleOptionSelect(option)}
-                                    className={`p-4 rounded-xl border text-left transition-all ${selectedOption === option
+                                    className={`p-3 md:p-4 rounded-xl border text-left transition-all ${selectedOption === option
                                         ? 'bg-emerald-900/40 border-emerald-500 ring-2 ring-emerald-500/20'
                                         : 'bg-neutral-800 border-neutral-700 hover:border-neutral-500'
                                         } ${isAnswered && option === currentTask.correctAnswer ? 'bg-emerald-900/60 border-emerald-400' : ''}`}
@@ -206,13 +206,13 @@ export default function Quiz({ lesson, onComplete, onProgressXP, onExit }: QuizP
                     )}
 
                     {currentTask.type === 'word-scramble' && (
-                        <div className="space-y-8">
+                        <div className="space-y-6 md:space-y-8">
                             <div className="min-h-[60px] p-4 flex flex-wrap gap-2 justify-center border-b border-neutral-800">
                                 {scrambledOrder.map((word, i) => (
                                     <motion.div
                                         layoutId={`word-${word}`}
                                         key={i}
-                                        className="px-6 py-2 bg-emerald-600 rounded-lg font-bold border border-emerald-400 cursor-pointer"
+                                        className="px-4 py-2 md:px-6 bg-emerald-600 rounded-lg font-bold border border-emerald-400 cursor-pointer text-sm md:text-base"
                                         onClick={() => toggleScrambleWord(word)}
                                     >
                                         {word}
@@ -224,7 +224,7 @@ export default function Quiz({ lesson, onComplete, onProgressXP, onExit }: QuizP
                                     <motion.div
                                         layoutId={`word-${word}`}
                                         key={word}
-                                        className="px-6 py-2 bg-neutral-800 rounded-lg border border-neutral-700 hover:border-neutral-500 cursor-pointer transition-all"
+                                        className="px-4 py-2 md:px-6 bg-neutral-800 rounded-lg border border-neutral-700 hover:border-neutral-500 cursor-pointer transition-all text-sm md:text-base"
                                         onClick={() => toggleScrambleWord(word)}
                                     >
                                         {word}

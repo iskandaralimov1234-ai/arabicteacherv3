@@ -33,9 +33,9 @@ export default function LessonView({ lesson, onStartQuiz }: LessonViewProps) {
     };
 
     return (
-        <div className="w-full max-w-3xl mx-auto glass p-8 md:p-12 rounded-3xl relative overflow-hidden">
+        <div className="w-full max-w-3xl mx-auto glass p-6 md:p-12 rounded-3xl relative overflow-hidden">
             {/* Header / Progress */}
-            <div className="flex items-center justify-between space-x-3 text-emerald-500 mb-8">
+            <div className="flex flex-col-reverse md:flex-row items-start md:items-center justify-between gap-4 text-emerald-500 mb-6 md:mb-8">
                 <div className="flex items-center space-x-3">
                     <BookOpen size={24} />
                     <span className="font-bold uppercase tracking-widest text-sm">
@@ -43,7 +43,7 @@ export default function LessonView({ lesson, onStartQuiz }: LessonViewProps) {
                     </span>
                 </div>
                 {isStepByStep && (
-                    <div className="flex space-x-1">
+                    <div className="flex space-x-1 self-end md:self-auto">
                         {sections.map((_, idx) => (
                             <div
                                 key={idx}
@@ -62,10 +62,10 @@ export default function LessonView({ lesson, onStartQuiz }: LessonViewProps) {
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.3 }}
                 >
-                    <h2 className="text-3xl font-black mb-6">{sectionTitle}</h2>
+                    <h2 className="text-2xl md:text-3xl font-black mb-6">{sectionTitle}</h2>
 
                     <div className="bg-emerald-900/10 border border-emerald-500/20 p-6 rounded-2xl mb-8">
-                        <div className="text-xl text-neutral-300 leading-relaxed whitespace-pre-wrap">
+                        <div className="text-lg md:text-xl text-neutral-300 leading-relaxed whitespace-pre-wrap">
                             {theoryText}
                         </div>
                     </div>
@@ -75,9 +75,9 @@ export default function LessonView({ lesson, onStartQuiz }: LessonViewProps) {
                             <h3 className="text-lg font-bold text-neutral-500 uppercase mb-4 tracking-tighter">Examples:</h3>
                             <div className="grid gap-4 mb-12">
                                 {theoryExamples.map((ex, i) => (
-                                    <div key={i} className="flex items-center justify-between p-4 bg-neutral-900 rounded-xl border border-white/5">
-                                        <span className="text-neutral-500">{ex.meaning}</span>
-                                        <span className="text-2xl font-arabic tracking-wide" dir="rtl">{ex.arabic}</span>
+                                    <div key={i} className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 p-4 bg-neutral-900 rounded-xl border border-white/5">
+                                        <span className="text-neutral-500 text-sm md:text-base">{ex.meaning}</span>
+                                        <span className="text-3xl md:text-4xl font-arabic tracking-wide self-end md:self-auto" dir="rtl">{ex.arabic}</span>
                                     </div>
                                 ))}
                             </div>

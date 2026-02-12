@@ -13,7 +13,8 @@ import {
     X,
     Zap,
     Users,
-    ShieldCheck
+    ShieldCheck,
+    Menu
 } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -36,58 +37,126 @@ const Nav = ({ streak, totalXp, userEmail, onSync, onViewChange, currentView, lo
     locale: string
 }) => {
     const t = useTranslations('nav');
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+    const closeMenu = () => setIsMobileMenuOpen(false);
+
+    const handleViewChange = (view: 'home' | 'path') => {
+        onViewChange(view);
+        closeMenu();
+    };
+
     return (
-        <nav className="fixed top-0 w-full z-50 glass px-6 py-4 flex justify-between items-center transition-all duration-500">
-            <div className="flex items-center space-x-2 cursor-pointer" onClick={() => onViewChange('home')}>
-                <div className="w-10 h-10 bg-emerald-600 rounded-lg flex items-center justify-center glow">
-                    <span className="text-white font-bold text-xl font-outfit">M</span>
+        <>
+            <nav className="fixed top-0 w-full z-50 glass px-6 py-4 flex justify-between items-center transition-all duration-500">
+                <div className="flex items-center space-x-2 cursor-pointer z-50" onClick={() => handleViewChange('home')}>
+                    <div className="w-10 h-10 bg-emerald-600 rounded-lg flex items-center justify-center glow">
+                        <span className="text-white font-bold text-xl font-outfit">M</span>
+                    </div>
+                    <span className="font-bold text-xl tracking-tight hidden sm:inline">Madinah<span className="text-emerald-500">Quest</span></span>
                 </div>
-                <span className="font-bold text-xl tracking-tight">Madinah<span className="text-emerald-500">Quest</span></span>
-            </div>
-            <div className="hidden md:flex space-x-8 font-medium text-sm uppercase tracking-widest text-neutral-400">
-                <button onClick={() => onViewChange('path')} className={`hover:text-white transition-colors ${currentView === 'path' ? 'text-white' : ''}`}>{t('path')}</button>
-                {userEmail && (
-                    <span className="text-[10px] text-emerald-500/50 flex items-center">
-                        <ShieldCheck size={12} className="mr-1" />
-                        {userEmail}
-                    </span>
-                )}
-            </div>
-            <div className="flex items-center space-x-6">
-                <div className="flex items-center space-x-2 bg-neutral-800 rounded-full p-1">
-                    <Link
-                        href="/ru"
-                        className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${locale === 'ru' ? 'bg-emerald-600 text-white' : 'text-neutral-400 hover:text-white'}`}
+
+                {/* Desktop Navigation */}
+                <div className="hidden md:flex items-center space-x-8">
+                    <button onClick={() => onViewChange('path')} className={`font-medium text-sm uppercase tracking-widest hover:text-white transition-colors ${currentView === 'path' ? 'text-white' : 'text-neutral-400'}`}>
+                        {t('path')}
+                    </button>
+
+                    <div className="flex items-center space-x-1.5 text-emerald-500 font-bold bg-neutral-900/50 px-3 py-1.5 rounded-full border border-emerald-500/20">
+                        <Zap size={16} fill="currentColor" />
+                        <span className="text-sm">{totalXp}</span>
+                    </div>
+
+                    <div className="flex items-center space-x-2 bg-neutral-800 rounded-full p-1">
+                        {['ru', 'en', 'uz'].map((lang) => (
+                            <Link
+                                key={lang}
+                                href={`/${lang}`}
+                                className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${locale === lang ? 'bg-emerald-600 text-white' : 'text-neutral-400 hover:text-white'}`}
+                            >
+                                {lang.toUpperCase()}
+                            </Link>
+                        ))}
+                    </div>
+
+                    <button
+                        onClick={userEmail ? () => onViewChange('path') : onSync}
+                        className={`${userEmail ? 'bg-neutral-800 text-neutral-400 hover:text-white' : 'bg-emerald-600 hover:bg-emerald-500 text-white'} px-5 py-2 rounded-full text-sm font-bold transition-all hover:scale-105 active:scale-95 shadow-lg flex items-center space-x-2`}
                     >
-                        RU
-                    </Link>
-                    <Link
-                        href="/en"
-                        className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${locale === 'en' ? 'bg-emerald-600 text-white' : 'text-neutral-400 hover:text-white'}`}
-                    >
-                        EN
-                    </Link>
-                    <Link
-                        href="/uz"
-                        className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${locale === 'uz' ? 'bg-emerald-600 text-white' : 'text-neutral-400 hover:text-white'}`}
-                    >
-                        UZ
-                    </Link>
+                        {userEmail && <ShieldCheck size={14} />}
+                        <span>{userEmail ? t('profile') : t('sync')}</span>
+                    </button>
                 </div>
-                <div className="flex items-center space-x-4">
-                    <div className="flex items-center space-x-1.5 text-emerald-500 font-bold">
-                        <Zap size={20} fill="currentColor" />
+
+                {/* Mobile Menu Toggle */}
+                <div className="md:hidden flex items-center space-x-4 z-50">
+                    <div className="flex items-center space-x-1 px-2 py-1 bg-emerald-900/40 rounded-lg border border-emerald-500/30 text-emerald-400 font-bold text-sm">
+                        <Zap size={14} fill="currentColor" />
                         <span>{totalXp}</span>
                     </div>
+                    <button
+                        onClick={toggleMenu}
+                        className="p-2 text-neutral-400 hover:text-white transition-colors"
+                    >
+                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
                 </div>
-                <button
-                    onClick={userEmail ? () => onViewChange('path') : onSync}
-                    className={`${userEmail ? 'bg-neutral-800 text-neutral-400 hover:text-white' : 'bg-emerald-600 hover:bg-emerald-500 text-white'} px-5 py-2 rounded-full text-sm font-bold transition-all hover:scale-105 active:scale-95 shadow-lg`}
-                >
-                    {userEmail ? t('profile') : t('sync')}
-                </button>
-            </div>
-        </nav>
+            </nav>
+
+            {/* Mobile Menu Overlay */}
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        className="fixed inset-0 z-40 bg-[#0a0a0a]/95 backdrop-blur-xl pt-24 px-6 flex flex-col md:hidden"
+                    >
+                        <div className="flex flex-col space-y-6">
+                            <button
+                                onClick={() => handleViewChange('home')}
+                                className={`text-2xl font-bold text-left py-2 border-b border-white/5 ${currentView === 'home' ? 'text-white' : 'text-neutral-500'}`}
+                            >
+                                {t('home')}
+                            </button>
+                            <button
+                                onClick={() => handleViewChange('path')}
+                                className={`text-2xl font-bold text-left py-2 border-b border-white/5 ${currentView === 'path' ? 'text-white' : 'text-neutral-500'}`}
+                            >
+                                {t('path')}
+                            </button>
+
+                            <div className="py-4">
+                                <div className="text-sm font-mono text-neutral-500 uppercase mb-4 tracking-widest">Language</div>
+                                <div className="flex space-x-3">
+                                    {['ru', 'en', 'uz'].map((lang) => (
+                                        <Link
+                                            key={lang}
+                                            href={`/${lang}`}
+                                            className={`flex-1 py-3 rounded-xl text-center font-bold text-lg border transition-all ${locale === lang ? 'bg-emerald-600 border-emerald-500 text-white' : 'bg-neutral-900 border-white/10 text-neutral-400'}`}
+                                        >
+                                            {lang.toUpperCase()}
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <button
+                                onClick={() => {
+                                    if (!userEmail) onSync();
+                                    closeMenu();
+                                }}
+                                className={`w-full py-4 rounded-xl font-bold text-lg flex items-center justify-center space-x-2 ${userEmail ? 'bg-neutral-800 text-neutral-300' : 'bg-emerald-600 text-white'}`}
+                            >
+                                {userEmail ? <ShieldCheck size={20} /> : <Users size={20} />}
+                                <span>{userEmail ? userEmail : t('sync')}</span>
+                            </button>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </>
     );
 };
 
@@ -239,11 +308,11 @@ export default function Home() {
                                                 <Trophy size={14} />
                                                 <span>Madina Arabic Series: 88 Lessons</span>
                                             </div>
-                                            <h1 className="text-6xl md:text-7xl font-black leading-tight mb-6">
+                                            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black leading-tight mb-4 md:mb-6">
                                                 {t('hero.title')} <br />
                                                 <span className="gradient-text tracking-tighter">{t('hero.subtitle')}.</span>
                                             </h1>
-                                            <p className="text-xl text-neutral-400 mb-10 max-w-xl leading-relaxed">
+                                            <p className="text-lg md:text-xl text-neutral-400 mb-8 md:mb-10 max-w-xl leading-relaxed">
                                                 {t('hero.description')}
                                             </p>
                                             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">

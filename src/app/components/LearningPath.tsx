@@ -52,7 +52,7 @@ export default function LearningPath({ currentLessonId, completedLessons, onSele
                             <button
                                 onClick={() => item.canPlay && onSelectLesson(item.id)}
                                 disabled={item.isLocked}
-                                className={`relative w-20 h-20 rounded-full flex items-center justify-center border-4 transition-all duration-300 z-20 hover:scale-110 active:scale-95 group
+                                className={`relative w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center border-4 transition-all duration-300 z-20 hover:scale-110 active:scale-95 group
                   ${item.isCompleted
                                         ? 'bg-emerald-600 border-emerald-400 shadow-[0_0_30px_rgba(16,185,129,0.4)]'
                                         : item.isLocked
@@ -62,16 +62,16 @@ export default function LearningPath({ currentLessonId, completedLessons, onSele
                 `}
                             >
                                 {item.isCompleted ? (
-                                    <Check size={32} className="text-white" />
+                                    <Check size={28} className="text-white md:w-8 md:h-8" />
                                 ) : item.isLocked ? (
-                                    <Lock size={24} className="text-neutral-500" />
+                                    <Lock size={20} className="text-neutral-500 md:w-6 md:h-6" />
                                 ) : (
-                                    <Star size={32} className="text-white fill-white" />
+                                    <Star size={28} className="text-white fill-white md:w-8 md:h-8" />
                                 )}
 
                                 {/* Tooltip Title */}
-                                <div className={`absolute top-1/2 -translate-y-1/2 ${isLeft ? 'left-full ml-6 text-left origin-left' : 'right-full mr-6 text-right origin-right'} w-48 transition-all duration-300 ${!item.isLocked ? 'scale-100 opacity-100' : 'scale-75 opacity-0 group-hover:scale-100 group-hover:opacity-100'}`}>
-                                    <div className="font-bold text-lg text-white mb-1">{item.title}</div>
+                                <div className={`absolute top-1/2 -translate-y-1/2 ${isLeft ? 'left-full ml-3 md:ml-6 text-left origin-left' : 'right-full mr-3 md:mr-6 text-right origin-right'} w-32 md:w-48 transition-all duration-300 ${!item.isLocked ? 'scale-100 opacity-100' : 'scale-75 opacity-0 group-hover:scale-100 group-hover:opacity-100'}`}>
+                                    <div className="font-bold text-sm md:text-lg text-white mb-0.5 md:mb-1">{item.title}</div>
                                     <div className="text-xs font-mono uppercase tracking-widest text-neutral-500">
                                         {item.isCompleted ? 'COMPLETED' : item.isLocked ? 'LOCKED' : 'CURRENT MISSION'}
                                     </div>
