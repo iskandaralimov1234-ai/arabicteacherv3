@@ -248,7 +248,7 @@ export default function Home() {
                                             </p>
                                             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                                                 <button
-                                                    onClick={() => startLesson(1)}
+                                                    onClick={() => setView('path')}
                                                     className="bg-emerald-600 hover:bg-emerald-500 px-8 py-4 rounded-xl text-lg font-bold flex items-center justify-center space-x-2 transition-all hover:glow group"
                                                 >
                                                     <span>{t('hero.start')}</span>
@@ -262,7 +262,7 @@ export default function Home() {
                                             animate={{ opacity: 1, scale: 1 }}
                                             transition={{ duration: 1 }}
                                             className="relative cursor-pointer"
-                                            onClick={() => startLesson(1)}
+                                            onClick={() => setView('path')}
                                         >
                                             <div className="relative z-10 p-8 glass rounded-3xl animate-float">
                                                 <div className="flex justify-between items-center mb-8">

@@ -10,7 +10,7 @@
             "title": "Master Arabic",
             "subtitle": "Through Quest",
             "description": "A digitized and gamified experience of the famous Madina Arabic curriculum. From zero to fluency through interactive missions.",
-            "start": "Begin Lesson 1",
+            "start": "view lessons..",
             "mission_card": {
                 "title": "Mission: Lesson 1",
                 "construct": "Construct: 'This is a house'",

@@ -19,9 +19,8 @@ export default function LearningPath({ currentLessonId, completedLessons, onSele
         const data = curriculum.find(l => l.id === id);
         const isCompleted = completedLessons.includes(id);
         // DEV MODE: All lessons unlocked for testing
-        const isLocked = false;
-        // const isLocked = !isCompleted && id !== currentLessonId && id > Math.max(...completedLessons, 0) + 1;
-        const canPlay = true;
+        const isLocked = id > 5 || (!isCompleted && id > Math.max(...completedLessons, 0) + 1);
+        const canPlay = !isLocked;
 
         return {
             id,
