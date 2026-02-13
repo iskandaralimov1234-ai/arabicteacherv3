@@ -125,7 +125,7 @@ export default function Quiz({ lesson, onComplete, onProgressXP, onExit }: QuizP
     if (!currentTask) return null;
 
     return (
-        <div className="w-full max-w-2xl mx-auto glass p-8 rounded-3xl relative">
+        <div className="w-full max-w-2xl mx-auto glass p-6 md:p-8 rounded-3xl relative min-h-[60vh] flex flex-col justify-between">
             <AnimatePresence>
                 {floatingXp.map(xpItem => (
                     <motion.div
@@ -134,10 +134,10 @@ export default function Quiz({ lesson, onComplete, onProgressXP, onExit }: QuizP
                         animate={{
                             opacity: 1,
                             scale: 1,
-                            y: -50
+                            y: -100
                         }}
                         exit={{ opacity: 0 }}
-                        className="absolute left-1/2 -top-[10px] -translate-x-1/2 pointer-events-none z-[1000] flex items-center space-x-2 text-emerald-400 font-black text-4xl italic drop-shadow-[0_0_20px_rgba(52,211,153,0.5)] whitespace-nowrap"
+                        className="absolute left-1/2 top-10 -translate-x-1/2 pointer-events-none z-[100] flex items-center space-x-2 text-emerald-400 font-black text-4xl italic drop-shadow-[0_0_20px_rgba(52,211,153,0.5)] whitespace-nowrap"
                         style={{
                             marginLeft: xpItem.x
                         }}
@@ -148,87 +148,116 @@ export default function Quiz({ lesson, onComplete, onProgressXP, onExit }: QuizP
                 ))}
             </AnimatePresence>
 
-            <div className="flex flex-col md:flex-row justify-between items-center mb-6 md:mb-12 gap-4">
-                <div className="flex space-x-1 w-full md:w-auto justify-center">
+            {/* Header: Hearts & Progress */}
+            <div className="flex items-center justify-between mb-8 gap-4">
+                <div className="flex space-x-1">
                     {[1, 2, 3, 4, 5].map((i) => (
-                        <Heart
+                        <motion.div
                             key={i}
-                            size={24}
-                            fill={i <= hearts ? "#ef4444" : "rgba(255,255,255,0.1)"}
-                            color={i <= hearts ? "#ef4444" : "#404040"}
-                            className="transition-all duration-300"
-                        />
+                            initial={false}
+                            animate={{ scale: i <= hearts ? 1 : 0.8, opacity: i <= hearts ? 1 : 0.3 }}
+                        >
+                            <Heart
+                                size={24}
+                                fill={i <= hearts ? "#ef4444" : "transparent"}
+                                color={i <= hearts ? "#ef4444" : "#525252"}
+                                className="transition-colors duration-300"
+                            />
+                        </motion.div>
                     ))}
                 </div>
-                <div className="hidden md:block bg-neutral-800 h-2 w-32 rounded-full overflow-hidden">
+
+                <div className="flex-1 max-w-[150px] md:max-w-[200px] h-3 bg-neutral-800 rounded-full overflow-hidden relative">
                     <motion.div
-                        className="bg-emerald-500 h-full"
+                        className="absolute inset-y-0 left-0 bg-gradient-to-r from-emerald-600 to-emerald-400"
                         initial={{ width: 0 }}
-                        animate={{ width: `${((currentTaskIndex + 1) / lesson.tasks.length) * 100}%` }}
+                        animate={{ width: `${((currentTaskIndex) / lesson.tasks.length) * 100}%` }}
+                        transition={{ duration: 0.5, ease: "circOut" }}
                     />
                 </div>
-                <div className="text-sm font-mono text-neutral-500">
-                    TASK {currentTaskIndex + 1}/{lesson.tasks.length}
+                <div className="text-xs md:text-sm font-mono text-neutral-500 font-bold">
+                    {currentTaskIndex + 1}/{lesson.tasks.length}
                 </div>
             </div>
 
+            {/* Question Area */}
             <AnimatePresence mode="wait">
                 <motion.div
                     key={currentTask.id}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
-                    className="mb-8 md:mb-12"
+                    className="flex-1 flex flex-col"
                 >
-                    <h3 className="text-neutral-400 text-xs md:text-sm uppercase tracking-widest font-bold mb-4">{currentTask.question}</h3>
+                    <h3 className="text-neutral-400 text-sm md:text-base uppercase tracking-widest font-bold mb-4 md:mb-6">{currentTask.question}</h3>
+
                     {currentTask.arabic && (
-                        <div className="text-3xl md:text-5xl text-right font-arabic mb-6 md:mb-12 leading-relaxed" dir="rtl">
+                        <div className="text-4xl md:text-6xl text-center md:text-right font-arabic mb-8 md:mb-12 leading-relaxed py-4" dir="rtl">
                             {currentTask.arabic}
                         </div>
                     )}
 
                     {currentTask.type === 'multiple-choice' && (
-                        <div className="grid gap-3">
-                            {currentTask.options?.map((option) => (
+                        <div className="grid gap-3 md:gap-4">
+                            {currentTask.options?.map((option, idx) => (
                                 <button
                                     key={option}
                                     onClick={() => handleOptionSelect(option)}
-                                    className={`p-3 md:p-4 rounded-xl border text-left transition-all ${selectedOption === option
-                                        ? 'bg-emerald-900/40 border-emerald-500 ring-2 ring-emerald-500/20'
-                                        : 'bg-neutral-800 border-neutral-700 hover:border-neutral-500'
-                                        } ${isAnswered && option === currentTask.correctAnswer ? 'bg-emerald-900/60 border-emerald-400' : ''}`}
+                                    className={`group relative p-4 md:p-5 rounded-2xl border text-left text-lg font-medium transition-all duration-200 active:scale-[0.98]
+                                        ${selectedOption === option
+                                            ? 'bg-emerald-900/30 border-emerald-500/50 shadow-[0_0_30px_rgba(16,185,129,0.1)]'
+                                            : 'bg-neutral-800/50 border-white/5 hover:bg-neutral-800 hover:border-white/10'
+                                        } 
+                                        ${isAnswered && option === currentTask.correctAnswer
+                                            ? 'bg-emerald-500/20 border-emerald-500'
+                                            : isAnswered && selectedOption === option && option !== currentTask.correctAnswer
+                                                ? 'bg-red-500/20 border-red-500'
+                                                : ''
+                                        }
+                                    `}
                                     disabled={isAnswered}
                                 >
-                                    {option}
+                                    <div className="flex items-center justify-between">
+                                        <span>{option}</span>
+                                        {selectedOption === option && !isAnswered && (
+                                            <div className="w-3 h-3 bg-emerald-500 rounded-full animate-ping" />
+                                        )}
+                                    </div>
                                 </button>
                             ))}
                         </div>
                     )}
 
                     {currentTask.type === 'word-scramble' && (
-                        <div className="space-y-6 md:space-y-8">
-                            <div className="min-h-[60px] p-4 flex flex-wrap gap-2 justify-center border-b border-neutral-800">
+                        <div className="space-y-8">
+                            {/* Drop Zone */}
+                            <div className="min-h-[80px] p-4 md:p-6 bg-neutral-900/50 rounded-2xl border-2 border-dashed border-neutral-800 flex flex-wrap gap-2 justify-center items-center transition-colors hover:border-neutral-700">
+                                {scrambledOrder.length === 0 && (
+                                    <span className="text-neutral-600 text-sm uppercase tracking-widest pointer-events-none">Tap words to build sentence</span>
+                                )}
                                 {scrambledOrder.map((word, i) => (
-                                    <motion.div
+                                    <motion.button
                                         layoutId={`word-${word}`}
-                                        key={i}
-                                        className="px-4 py-2 md:px-6 bg-emerald-600 rounded-lg font-bold border border-emerald-400 cursor-pointer text-sm md:text-base"
+                                        key={`${word}-dropped`}
+                                        className="px-4 py-2 md:px-6 md:py-3 bg-emerald-600 rounded-xl font-bold text-white shadow-lg active:scale-95 transition-transform"
                                         onClick={() => toggleScrambleWord(word)}
                                     >
                                         {word}
-                                    </motion.div>
+                                    </motion.button>
                                 ))}
                             </div>
-                            <div className="flex flex-wrap gap-2 justify-center">
+
+                            {/* Source Words */}
+                            <div className="flex flex-wrap gap-3 justify-center">
                                 {currentTask.scrambledWords?.filter(w => !scrambledOrder.includes(w)).map((word) => (
-                                    <motion.div
+                                    <motion.button
                                         layoutId={`word-${word}`}
                                         key={word}
-                                        className="px-4 py-2 md:px-6 bg-neutral-800 rounded-lg border border-neutral-700 hover:border-neutral-500 cursor-pointer transition-all text-sm md:text-base"
+                                        className="px-4 py-2 md:px-6 md:py-3 bg-neutral-800 rounded-xl border border-white/10 hover:border-white/20 active:scale-95 transition-all text-neutral-300 font-medium"
                                         onClick={() => toggleScrambleWord(word)}
                                     >
                                         {word}
-                                    </motion.div>
+                                    </motion.button>
                                 ))}
                             </div>
                         </div>
@@ -236,43 +265,58 @@ export default function Quiz({ lesson, onComplete, onProgressXP, onExit }: QuizP
                 </motion.div>
             </AnimatePresence>
 
-            <div className="mt-8">
-                {!isAnswered ? (
-                    <button
-                        onClick={checkAnswer}
-                        disabled={(!selectedOption && currentTask.type === 'multiple-choice') || (currentTask.type === 'word-scramble' && scrambledOrder.length === 0)}
-                        className="w-full bg-emerald-600 disabled:bg-neutral-800 disabled:text-neutral-500 py-4 rounded-2xl font-bold flex items-center justify-center space-x-2 transition-all"
-                    >
-                        <span>CHECK ANSWER</span>
-                    </button>
-                ) : (
-                    <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className={`p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between ${isCorrect ? 'bg-emerald-900/40 border border-emerald-500/30' : 'bg-red-900/20 border border-red-500/30'}`}
-                    >
-                        <div className="flex items-center space-x-3 mb-4 sm:mb-0 text-lg font-bold">
-                            {isCorrect ? (
-                                <>
-                                    <CheckCircle2 className="text-emerald-500" />
-                                    <span className="text-emerald-400 font-arabic">أَحْسَنْتَ! (Correct!)</span>
-                                </>
-                            ) : (
-                                <>
-                                    <XCircle className="text-red-500" />
-                                    <span className="text-red-400">Oops! Correct: <span className="font-arabic">{currentTask.correctAnswer}</span></span>
-                                </>
-                            )}
-                        </div>
-                        <button
-                            onClick={nextTask}
-                            className="bg-white text-black px-8 py-3 rounded-xl font-black flex items-center space-x-2 hover:bg-neutral-200 transition-all"
+            {/* Bottom Action Area */}
+            <div className="mt-8 md:mt-12 sticky bottom-0 pt-4 z-20">
+                <AnimatePresence mode="wait">
+                    {!isAnswered ? (
+                        <motion.button
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 10 }}
+                            onClick={checkAnswer}
+                            disabled={(!selectedOption && currentTask.type === 'multiple-choice') || (currentTask.type === 'word-scramble' && scrambledOrder.length === 0)}
+                            className="w-full bg-emerald-600 disabled:bg-neutral-800 disabled:text-neutral-600 disabled:cursor-not-allowed hover:bg-emerald-500 text-white text-lg font-black py-5 rounded-2xl shadow-xl transition-all active:scale-[0.98] uppercase tracking-wide"
                         >
-                            <span>{currentTaskIndex < lesson.tasks.length - 1 ? 'CONTINUE' : 'FINISH'}</span>
-                            <ArrowRight size={20} />
-                        </button>
-                    </motion.div>
-                )}
+                            CHECK ANSWER
+                        </motion.button>
+                    ) : (
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 50 }}
+                            className={`p-1 rounded-3xl ${isCorrect ? 'bg-gradient-to-b from-emerald-500/20 to-emerald-900/40 border border-emerald-500/50' : 'bg-gradient-to-b from-red-500/20 to-red-900/40 border border-red-500/50'} backdrop-blur-xl shadow-2xl`}
+                        >
+                            <div className="p-5 md:p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+                                <div className="flex items-center space-x-4">
+                                    <div className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 ${isCorrect ? 'bg-emerald-500 text-white' : 'bg-red-500 text-white'}`}>
+                                        {isCorrect ? <CheckCircle2 size={28} /> : <XCircle size={28} />}
+                                    </div>
+                                    <div className="text-left">
+                                        <div className={`font-black text-xl ${isCorrect ? 'text-emerald-400' : 'text-red-400'}`}>
+                                            {isCorrect ? 'Excellent!' : 'Incorrect'}
+                                        </div>
+                                        {!isCorrect && (
+                                            <div className="text-sm text-red-200/80 mt-1">
+                                                Correct answer: <span className="font-bold text-white font-arabic">{currentTask.correctAnswer}</span>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                                <button
+                                    onClick={nextTask}
+                                    className={`w-full md:w-auto px-8 py-4 rounded-xl font-black text-lg flex items-center justify-center space-x-2 transition-all hover:scale-105 active:scale-95 shadow-lg
+                                        ${isCorrect
+                                            ? 'bg-emerald-500 text-white hover:bg-emerald-400'
+                                            : 'bg-neutral-100 text-neutral-900 hover:bg-white'}
+                                    `}
+                                >
+                                    <span>CONTINUE</span>
+                                    <ArrowRight size={20} />
+                                </button>
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </div>
     );

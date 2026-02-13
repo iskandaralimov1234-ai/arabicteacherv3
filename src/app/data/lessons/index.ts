@@ -1,23 +1,26 @@
 import { Lesson } from '../types';
 
 export const getCurriculum = async (locale: string = 'ru'): Promise<Lesson[]> => {
-    // Only first 5 lessons are active for now, as per recent restriction
-    const lessonIds = [1, 2, 3, 4, 5];
+    // Enable all lessons for testing
+    const lessonIds = Array.from({ length: 88 }, (_, i) => i + 1);
+    const lessons: Lesson[] = [];
 
-    try {
-        const lessons = await Promise.all(
-            lessonIds.map(async (id) => {
-                const module = await import(`./${locale}/lesson_${id}`);
-                return Object.values(module)[0] as Lesson;
-            })
-        );
-        return lessons;
-    } catch (error) {
-        console.error(`Failed to load lessons for locale ${locale}:`, error);
-        // Fallback to RU if specific locale fails
-        if (locale !== 'ru') {
-            return getCurriculum('ru');
+    for (const id of lessonIds) {
+        try {
+            const module = await import(`./${locale}/lesson_${id}`);
+            const lesson = Object.values(module)[0] as Lesson;
+            if (lesson && lesson.id) {
+                lessons.push(lesson);
+            }
+        } catch (error) {
+            // Silently skip missing lessons for the current locale
         }
-        return [];
     }
+
+    // Fallback to RU if specific locale resulted in no lessons
+    if (lessons.length === 0 && locale !== 'ru') {
+        return getCurriculum('ru');
+    }
+
+    return lessons;
 };

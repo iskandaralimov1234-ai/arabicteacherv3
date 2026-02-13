@@ -2,35 +2,111 @@ import { Lesson } from '../../types';
 
 export const lesson3: Lesson = {
     "id": 3,
-    "title": "3-dars: هَؤُلَاءِ وَأُولَئِكَ (Ko'plik soni)",
-    "grammar": "Ko'plik demonstrativlari",
+    "title": "3-dars: هَؤُلَاءِ (Bular - Ko'plik)",
+    "grammar": "Kishilik olmoshlarining ko'pligi (Odamlar uchun)",
     "theory": {
         "sections": [
             {
-                "title": "👥 Ko'plik soni: هَؤُلَاءِ (hо̄'ulо̄'i)",
-                "content": "Odamlar guruhiga (ham erkaklar, ham ayollar uchun) ishora qilish uchun biz quyidagilarni ishlatamiz:\n1. **هَؤُلَاءِ** (hо̄'ulо̄'i) — bular (yaqin).\n2. **أُولَئِكَ** (ulо̄'ika) — ular, ana ular (uzoq).\n\n**Muhim:** Ushbu so'zlar faqat odamlar (aqlli mavjudotlar) uchun ko'plikda ishlatiladi.",
+                "title": "👥 هَؤُلَاءِ (Ha'ula'i) — Bular (Yaqin)",
+                "content": "Aqlli zotlar (odamlar) uchun yaqin masofadagi ko'plikni ifodalashda **هَؤُلَاءِ** (há'ulа̄'i) olmoshi ishlatiladi. Bu olmosh erkaklar va ayollar uchun umumiy (bir xil).\n\nEslatma: Bu faqat odamlar uchun!",
                 "examples": [
                     {
                         "arabic": "هَؤُلَاءِ طُلَّابٌ",
-                        "meaning": "Bular talabalar"
+                        "meaning": "Bular talabalar (ha'ula'i tullabun)"
                     },
                     {
-                        "arabic": "أُولَئِكَ مُدَرِّسُونَ",
-                        "meaning": "Ana ular o'qituvchilar"
+                        "arabic": "هَؤُلَاءِ رِجَالٌ",
+                        "meaning": "Bular kishilar (ha'ula'i rijalun)"
+                    },
+                    {
+                        "arabic": "هَؤُلَاءِ مُدَرِّسُونَ",
+                        "meaning": "Bular o'qituvchilar (ha'ula'i mudarrisuna)"
+                    },
+                    {
+                        "arabic": "هَؤُلَاءِ نِسَاءٌ",
+                        "meaning": "Bular ayollar (ha'ula'i nisa'un)"
+                    },
+                    {
+                        "arabic": "هَؤُلَاءِ طَالِبَاتٌ",
+                        "meaning": "Bular talaba qizlar (ha'ula'i talibatun)"
                     }
                 ]
             },
             {
-                "title": "❓ مَنْ (man) so'roq so'zi",
-                "content": "**مَنْ** (man) — 'kim?' degan ma'noni anglatadi. Faqat odamlar uchun ishlatiladi.\n\n- **مَنْ هَذَا؟** (man haza?) — Bu kim?\n- **مَنْ هَؤُلَاءِ؟** (man hо̄'ulо̄'i?) — Bular kimlar?",
+                "title": "👉 أُولَئِكَ (Ula'ika) — Ana ular (Uzoq)",
+                "content": "Uzoq masofadagi odamlar guruhini ko'rsatish uchun **أُولَئِكَ** (ulа̄'ika) olmoshi ishlatiladi. Bu ham erkaklar va ayollar uchun umumiydir.",
                 "examples": [
                     {
-                        "arabic": "مَنْ هَؤُلَاءِ؟ هَؤُلَاءِ أَطِبَّاءُ",
-                        "meaning": "Bular kimlar? Bular shifokorlar"
+                        "arabic": "أُولَئِكَ مُهَنْدِسُونَ",
+                        "meaning": "Ana ular muhandislar (ula'ika muhandisuna)"
                     },
                     {
-                        "arabic": "مَنْ أُولَئِكَ؟ أُولَئِكَ تَلَامِيذُ",
-                        "meaning": "Ana ular kimlar? Ana ular o'quvchilar"
+                        "arabic": "أُولَئِكَ فَلَّاحُونَ",
+                        "meaning": "Ana ular dehqonlar (ula'ika fallahuna)"
+                    },
+                    {
+                        "arabic": "أُولَئِكَ مُمَرِّضَاتٌ",
+                        "meaning": "Ana ular hamshiralar (ula'ika mumarridatun)"
+                    },
+                    {
+                        "arabic": "أُولَئِكَ طِوَالٌ",
+                        "meaning": "Ana ular baland bo'yli kishilar (ula'ika tivalun)"
+                    },
+                    {
+                        "arabic": "أُولَئِكَ صِغَارٌ",
+                        "meaning": "Ana ular kichkinalar (bolalar) (ula'ika sig'arun)"
+                    }
+                ]
+            },
+            {
+                "title": "❓ مَنْ هَؤُلَاءِ؟ (Man ha'ula'i?) — Bular kimlar?",
+                "content": "Guruh haqida so'rash uchun **مَنْ** (kim) so'rog'idan foydalanamiz.\n\nSavol: **مَنْ هَؤُلَاءِ؟** (Bular kimlar?)\nJavob: **هَؤُلَاءِ ...** (Bular ...)",
+                "examples": [
+                    {
+                        "arabic": "مَنْ هَؤُلَاءِ؟ هَؤُلَاءِ ضُيُوفٌ",
+                        "meaning": "Bular kimlar? Bular mehmonlar (duyufun)"
+                    },
+                    {
+                        "arabic": "مَنْ أُولَئِكَ؟ أُولَئِكَ حُجَّاجٌ",
+                        "meaning": "Ana ular kimlar? Ana ular hojilar (hujjajun)"
+                    },
+                    {
+                        "arabic": "هَؤُلَاءِ إِخْوَةٌ",
+                        "meaning": "Bular aka-ukalar (ixvatun)"
+                    },
+                    {
+                        "arabic": "أُولَئِكَ أَصْدِقَاءُ",
+                        "meaning": "Ana ular do'stlar (asdiqa'u)"
+                    },
+                    {
+                        "arabic": "هَؤُلَاءِ بَنَاتٌ",
+                        "meaning": "Bular qizlar (banatun)"
+                    }
+                ]
+            },
+            {
+                "title": "🧩 Siniq va To'g'ri ko'plik",
+                "content": "Arab tilida ko'plik ikki xil bo'ladi:\n1. **To'g'ri ko'plik**: So'z oxiriga **-una** (erkak) yoki **-atun** (ayol) qo'shiladi. (Masalan: Mudarris -> Mudarrisuna)\n2. **Siniq ko'plik**: So'zning o'zagi o'zgaradi. Buni yodlash kerak.",
+                "examples": [
+                    {
+                        "arabic": "مُدَرِّسٌ ➡️ مُدَرِّسُونَ",
+                        "meaning": "O'qituvchi ➡️ O'qituvchilar (To'g'ri)"
+                    },
+                    {
+                        "arabic": "مُسْلِمَةٌ ➡️ مُسْلِمَاتٌ",
+                        "meaning": "Musulmon ayol ➡️ Musulmon ayollar (To'g'ri)"
+                    },
+                    {
+                        "arabic": "طَالِبٌ ➡️ طُلَّابٌ",
+                        "meaning": "Talaba ➡️ Talabalar (Siniq)"
+                    },
+                    {
+                        "arabic": "رَجُلٌ ➡️ رِجَالٌ",
+                        "meaning": "Kishi ➡️ Kishilar (Siniq)"
+                    },
+                    {
+                        "arabic": "تَاجِرٌ ➡️ تُجَّارٌ",
+                        "meaning": "Tujjor ➡️ Tujjorlar (Savdogarlar) (Siniq)"
                     }
                 ]
             }
@@ -40,112 +116,112 @@ export const lesson3: Lesson = {
         {
             "id": "3-1",
             "type": "multiple-choice",
-            "question": "'Bular' (odamlar uchun) qanday bo'ladi?",
+            "question": "Yaqin masofadagi odamlar guruhi (bular) qanday aytiladi?",
             "options": [
-                "هَذَا",
-                "هَؤُلَاءِ",
-                "أُولَئِكَ"
+                "هَؤُلَاءِ (ha'ula'i)",
+                "أُولَئِكَ (ula'ika)",
+                "هُمْ (hum)"
             ],
-            "correctAnswer": "هَؤُلَاءِ"
+            "correctAnswer": "هَؤُلَاءِ (ha'ula'i)"
         },
         {
             "id": "3-2",
             "type": "multiple-choice",
-            "question": "مَنْ (man) nimani anglatadi?",
+            "question": " هَؤُلَاءِ olmoshi kimlar uchun ishlatiladi?",
             "options": [
-                "Nima?",
-                "Kim?",
-                "Qayerda?"
+                "Faqat erkaklar",
+                "Faqat ayollar",
+                "Erkaklar va ayollar (umumiy)"
             ],
-            "correctAnswer": "Kim?"
+            "correctAnswer": "Erkaklar va ayollar (umumiy)"
         },
         {
             "id": "3-3",
             "type": "multiple-choice",
-            "question": "'Ana ular' (odamlar uchun) qanday bo'ladi?",
+            "question": "Uzoq masofadagi odamlar guruhi (ana ular) qanday aytiladi?",
             "options": [
-                "ذَلِكَ",
-                "تِلْكَ",
-                "أُولَئِكَ"
+                "ذَلِكَ (zalika)",
+                "أُولَئِكَ (ula'ika)",
+                "تِلْكَ (tilka)"
             ],
-            "correctAnswer": "أُولَئِكَ"
+            "correctAnswer": "أُولَئِكَ (ula'ika)"
         },
         {
             "id": "3-4",
             "type": "multiple-choice",
-            "question": "Tarjima qiling: هَؤُلَاءِ طُلَّابٌ",
+            "question": "Qaysi ko'plik shaklida so'z o'zagi o'zgaradi?",
             "options": [
-                "Bu talaba",
-                "Bular talabalar",
-                "Ana ular talabalar"
+                "To'g'ri ko'plik",
+                "Siniq ko'plik",
+                "Ikkilik"
             ],
-            "correctAnswer": "Bular talabalar"
+            "correctAnswer": "Siniq ko'plik"
         },
         {
             "id": "3-5",
             "type": "multiple-choice",
-            "question": "أَطِبَّاءُ kimlar?",
+            "question": "Tarjima qiling: 'هَؤُلَاءِ رِجَالٌ'",
             "options": [
-                "O'qituvchilar",
-                "Shifokorlar",
-                "Talabalar"
+                "Bular kishilar",
+                "Ana ular kishilar",
+                "Bular bolalar"
             ],
-            "correctAnswer": "Shifokorlar"
+            "correctAnswer": "Bular kishilar"
         },
         {
             "id": "3-6",
             "type": "multiple-choice",
-            "question": "'Bu kim?' deb qanday so'raladi?",
+            "question": "Tarjima qiling: 'أُولَئِكَ مُهَنْدِسُونَ'",
             "options": [
-                "مَا هَذَا؟",
-                "مَنْ هَذَا؟",
-                "مَنْ هَذِهِ؟"
+                "Bular muhandislar",
+                "Ana ular muhandislar",
+                "Ana ular o'qituvchilar"
             ],
-            "correctAnswer": "مَنْ هَذَا؟"
+            "correctAnswer": "Ana ular muhandislar"
         },
         {
             "id": "3-7",
             "type": "multiple-choice",
-            "question": "Tarjima qiling: أُولَئِكَ مُدَرِّسُونَ",
+            "question": "Tarjima qiling: 'هَؤُلَاءِ ضُيُوفٌ'",
             "options": [
-                "Bular o'qituvchilar",
-                "Ana ular o'qituvchilar",
-                "Ana ular shifokorlar"
+                "Bular mehmonlar",
+                "Bular do'stlar",
+                "Bular hojilar"
             ],
-            "correctAnswer": "Ana ular o'qituvchilar"
+            "correctAnswer": "Bular mehmonlar"
         },
         {
             "id": "3-8",
             "type": "multiple-choice",
-            "question": "طَالِبَةٌ so'zi nimani anglatadi?",
+            "question": "'Savdogarlar' so'zining ko'pligi qanday?",
             "options": [
-                "Talaba (o'g'il bola)",
-                "Talaba (qiz bola)",
-                "O'qituvchi ayol"
+                "تَاجِرُونَ",
+                "تُجَّارٌ",
+                "أَتْجَارٌ"
             ],
-            "correctAnswer": "Talaba (qiz bola)"
+            "correctAnswer": "تُجَّارٌ"
         },
         {
             "id": "3-9",
             "type": "multiple-choice",
-            "question": "هَؤُلَاءِ ayollar uchun ham ishlatiladimi?",
+            "question": "'Hojilar' arab tilida nima bo'ladi?",
             "options": [
-                "Ha",
-                "Yo'q",
-                "Faqat birlikda"
+                "حُجَّاجٌ",
+                "مُعْتَمِرُونَ",
+                "مُسَافِرُونَ"
             ],
-            "correctAnswer": "Ha"
+            "correctAnswer": "حُجَّاجٌ"
         },
         {
             "id": "3-10",
             "type": "multiple-choice",
-            "question": "'O'quvchilar' (siniq ko'plik) qanday bo'ladi?",
+            "question": "'Do'stlar' so'zini toping",
             "options": [
-                "تِلْمِيذٌ",
-                "تَلَامِيذُ",
-                "mudarrisun"
+                "أَصْدِقَاءُ",
+                "إِخْوَةٌ",
+                "أَبْنَاءٌ"
             ],
-            "correctAnswer": "تَلَامِيذُ"
+            "correctAnswer": "أَصْدِقَاءُ"
         }
     ]
 };

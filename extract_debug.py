@@ -3,7 +3,7 @@ import xml.etree.ElementTree as ET
 import os
 
 lessons_dir = r'c:\AI\arabicteacher v3\Lessons'
-files = ['1.docx', '2.docx', '3.docx', '4.docx', '5.docx']
+files = ['12.docx']
 
 def get_docx_text(path):
     try:
