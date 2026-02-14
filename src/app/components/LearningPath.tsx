@@ -13,21 +13,26 @@ interface LearningPathProps {
 
 export default function LearningPath({ currentLessonId, completedLessons, onSelectLesson, curriculum }: LearningPathProps) {
     const totalLessons = 88;
+    const maxCompleted = Math.max(...completedLessons, 0);
+
     const pathItems = Array.from({ length: totalLessons }, (_, i) => {
         const id = i + 1;
         const data = curriculum.find(l => l.id === id);
         const isCompleted = completedLessons.includes(id);
-        const isLocked = false; // id > 9 || (!isCompleted && id > Math.max(...completedLessons, 0) + 1);
-        const canPlay = !isLocked;
-        const isCurrent = !isCompleted && !isLocked;
+
+        // A lesson is locked if it's not completed AND it's more than 1 lesson ahead of the furthest completed one.
+        // Also, if the lesson data (content) is missing, it's effectively locked.
+        const isLocked = !isCompleted && id > maxCompleted + 1;
+        const canPlay = !isLocked && !!data;
+        const isCurrent = id === maxCompleted + 1;
 
         return {
             id,
             title: data ? data.title : `Lesson ${id}`,
             isCompleted,
-            isLocked,
+            isLocked: isLocked || !data,
             canPlay,
-            isCurrent
+            isCurrent: isCurrent && !!data
         };
     });
 
@@ -76,7 +81,7 @@ export default function LearningPath({ currentLessonId, completedLessons, onSele
                                     {item.isCompleted ? (
                                         <Check size={32} className="text-white drop-shadow-md" strokeWidth={3} />
                                     ) : item.isCurrent ? (
-                                        <Play size={32} className="text-amber-900 fill-amber-900 ml-1" />
+                                        <Star size={32} className="text-amber-900 fill-amber-900" />
                                     ) : (
                                         <Lock size={24} />
                                     )}
