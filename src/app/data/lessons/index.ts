@@ -1,26 +1,34 @@
 import { Lesson } from '../types';
 
 export const getCurriculum = async (locale: string = 'ru'): Promise<Lesson[]> => {
-    // Enable all lessons for testing
-    const lessonIds = Array.from({ length: 88 }, (_, i) => i + 1);
-    const lessons: Lesson[] = [];
+    try {
+        let lessons: Lesson[] = [];
+        if (locale === 'en') {
+            const mod = await import('./en');
+            lessons = mod.lessons;
+        } else if (locale === 'uz') {
+            const mod = await import('./uz');
+            lessons = mod.lessons;
+        } else {
+            const mod = await import('./ru');
+            lessons = mod.lessons;
+        }
 
-    for (const id of lessonIds) {
+        if (!lessons || lessons.length === 0) {
+            // Fallback to ru
+            const ruMod = await import('./ru');
+            return ruMod.lessons;
+        }
+
+        return lessons;
+    } catch (error) {
+        console.error(`Failed to load curriculum for locale ${locale}:`, error);
+        // Fallback to ru if a locale import completely fails
         try {
-            const module = await import(`./${locale}/lesson_${id}`);
-            const lesson = Object.values(module)[0] as Lesson;
-            if (lesson && lesson.id) {
-                lessons.push(lesson);
-            }
-        } catch (error) {
-            // Silently skip missing lessons for the current locale
+            const ruMod = await import('./ru');
+            return ruMod.lessons;
+        } catch {
+            return [];
         }
     }
-
-    // Fallback to RU if specific locale resulted in no lessons
-    if (lessons.length === 0 && locale !== 'ru') {
-        return getCurriculum('ru');
-    }
-
-    return lessons;
 };
