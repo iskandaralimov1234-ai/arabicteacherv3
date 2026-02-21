@@ -1,33 +1,31 @@
 "use client";
 
-const SOUNDS = {
-    SUCCESS: 'https://assets.mixkit.co/active_storage/sfx/600/600-preview.mp3',
-    ERROR: 'https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3',
-    CLICK: 'https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3',
-    APPLAUSE: '/sound/driken5482-applause-cheer-236786.mp3'
+import useSound from 'use-sound';
+
+// Users should place their downloaded premium sounds in the 'public/sounds' folder
+// with the following filenames.
+const SOUND_PATHS = {
+    SUCCESS: '/sounds/success.mp3',
+    ERROR: '/sounds/error.mp3',
+    CLICK: '/sounds/click.mp3',
+    APPLAUSE: '/sounds/applause.mp3',
+    HOVER: '/sounds/hover.mp3'
 };
 
 export const useSoundEffects = () => {
-    const playSound = (url: string, volume: number) => {
-        try {
-            const audio = new Audio(url);
-            audio.volume = volume;
-            const playPromise = audio.play();
-
-            if (playPromise !== undefined) {
-                playPromise.catch(error => {
-                    console.error("Audio playback interrupted or blocked:", error);
-                });
-            }
-        } catch (err) {
-            console.error("Failed to create Audio object:", err);
-        }
-    };
+    // using the useSound hook enables audio caching, prevents Safari blocking issues,
+    // and allows for sound interruption during rapid clicks.
+    const [playSuccess] = useSound(SOUND_PATHS.SUCCESS, { volume: 0.4 });
+    const [playError] = useSound(SOUND_PATHS.ERROR, { volume: 0.3 });
+    const [playClick] = useSound(SOUND_PATHS.CLICK, { volume: 0.2 });
+    const [playApplause] = useSound(SOUND_PATHS.APPLAUSE, { volume: 0.5 });
+    const [playHover] = useSound(SOUND_PATHS.HOVER, { volume: 0.1 });
 
     return {
-        playSuccess: () => playSound(SOUNDS.SUCCESS, 0.4),
-        playError: () => playSound(SOUNDS.ERROR, 0.3),
-        playClick: () => playSound(SOUNDS.CLICK, 0.2),
-        playApplause: () => playSound(SOUNDS.APPLAUSE, 0.5)
+        playSuccess,
+        playError,
+        playClick,
+        playApplause,
+        playHover
     };
 };

@@ -25,7 +25,7 @@ export default function Quiz({ lesson, onComplete, onProgressXP, onExit }: QuizP
     const [isCorrect, setIsCorrect] = useState(false);
     const [isFinished, setIsFinished] = useState(false);
     const [floatingXp, setFloatingXp] = useState<{ id: number; x: number; y: number }[]>([]);
-    const { playSuccess, playError, playClick } = useSoundEffects();
+    const { playSuccess, playError, playClick, playHover } = useSoundEffects();
 
     const currentTask = lesson.tasks[currentTaskIndex];
 
@@ -218,6 +218,7 @@ export default function Quiz({ lesson, onComplete, onProgressXP, onExit }: QuizP
                                 return (
                                     <motion.button
                                         key={option}
+                                        onMouseEnter={() => playHover()}
                                         onClick={() => handleOptionSelect(option)}
                                         animate={isWrongSelection ? { x: [-5, 5, -5, 5, 0], transition: { duration: 0.4 } } : {}}
                                         className={`group relative p-4 md:p-5 rounded-2xl border text-left text-lg font-medium transition-all duration-200
@@ -258,6 +259,7 @@ export default function Quiz({ lesson, onComplete, onProgressXP, onExit }: QuizP
                                         layoutId={`word-${word}`}
                                         key={`${word}-dropped`}
                                         className="px-4 py-2 md:px-6 md:py-3 bg-emerald-600 rounded-xl font-bold text-white shadow-lg active:scale-95 transition-transform"
+                                        onMouseEnter={() => playHover()}
                                         onClick={() => toggleScrambleWord(word)}
                                     >
                                         {word}
@@ -272,6 +274,7 @@ export default function Quiz({ lesson, onComplete, onProgressXP, onExit }: QuizP
                                         layoutId={`word-${word}`}
                                         key={word}
                                         className="px-4 py-2 md:px-6 md:py-3 bg-neutral-800 rounded-xl border border-white/10 hover:border-white/20 active:scale-95 transition-all text-neutral-300 font-medium"
+                                        onMouseEnter={() => playHover()}
                                         onClick={() => toggleScrambleWord(word)}
                                     >
                                         {word}
