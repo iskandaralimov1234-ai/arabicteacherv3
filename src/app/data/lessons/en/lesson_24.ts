@@ -1,124 +1,37 @@
 import { Lesson } from '../../types';
-
 export const lesson24: Lesson = {
-    id: 24,
-    title: "Lesson 24: Inna (Indeed) & its Sisters",
-    grammar: "Inna (Indeed), Lalla (Maybe), Dhu (Possessor)",
-    theory: {
+    id: 24, title: "Lesson 24: Coordination and Apposition (الدَّرْسُ الرَّابِعُ وَالْعِشْرُونَ - الْعَطْفُ وَالْبَدَلُ)", grammar: "Coordination ('Aṭf) and Apposition (Badal)", theory: {
         sections: [
+            { title: "📖 Description", content: "Coordination (العَطْفُ — Al-'Aṭf) connects words or phrases using conjunction particles. Apposition (البَدَلُ — Al-Badal) is when one noun clarifies or replaces another, agreeing in i'rāb." },
+            { title: "📝 Key Rules", content: "- وَ (and), فَ (then), ثُمَّ (subsequently), أَوْ (or) — coordination particles\\n- The coordinated word follows the same i'rāb as the word before وَ\\n- Badal agrees in i'rāb with the word it clarifies\\n- Types of Badal: badal kull min kull (total), badal ba'ḍ min kull (partial)" },
             {
-                title: "💎 'Inna' (Indeed/Verily)",
-                content: "The particle **إِنَّ** (Inna) is used for emphasis and translates as 'Indeed', 'Verily', or 'Certainly'.\nIt changes the case of the subject (Mubtada) to **Accusative** (Nasb — Fatha).",
-                examples: [
-                    { arabic: "الْبَيْتُ جَمِيلٌ", meaning: "The house is beautiful (Damma)" },
-                    { arabic: "إِنَّ الْبَيْتَ جَمِيلٌ", meaning: "Indeed, the house is beautiful (Fatha)" },
-                    { arabic: "إِنَّ اللهَ غَفُورٌ", meaning: "Indeed, Allah is Forgiving" }
+                title: "🗣️ Examples", content: "Examples:", examples: [
+                    { arabic: "جَاءَ مُحَمَّدٌ وَعَلِيٌّ", meaning: "Jā'a Muḥammadun wa 'Aliyyun — Muhammad and Ali came (both Marfū', coordinated with وَ)" },
+                    { arabic: "رَأَيْتُ مُحَمَّدًا وَعَلِيًّا", meaning: "Ra'aytu Muḥammadan wa 'Aliyyan — I saw Muhammad and Ali (both Manṣūb)" },
+                    { arabic: "جَاءَ الْخَلِيفَةُ عُمَرُ", meaning: "Jā'a al-khalīfatu 'Umaru — The caliph, Umar, came (Badal — 'Umar clarifies 'caliph', both Marfū')" },
+                    { arabic: "قَرَأْتُ الْكِتَابَ نِصْفَهُ", meaning: "Qara'tu al-kitāba niṣfahu — I read the book, half of it (Badal ba'ḍ — partial apposition)" },
+                    { arabic: "ذَهَبَ أَحْمَدُ ثُمَّ خَالِدٌ", meaning: "Dhahaba Aḥmadu thumma Khālidun — Ahmad went, then Khalid" }
                 ]
             },
             {
-                title: "🤔 'Lalla' (Maybe/Hopefully)",
-                content: "**لَعَلَّ** (La'alla) is a 'sister' of Inna. It expresses hope or fear ('Maybe', 'Hopefully').\nIt also puts the subject in the **Accusative case** (Fatha).",
-                examples: [
-                    { arabic: "لَعَلَّ الْمُدَرِّسَ مَرِيضٌ", meaning: "Maybe the teacher is sick" },
-                    { arabic: "لَعَلَّ الْإِمْتِحَانَ سَهْلٌ", meaning: "Hopefully the exam is easy" }
-                ]
-            },
-            {
-                title: "🎩 The Possessor (Dhu)",
-                content: "The word **ذُو** (Dhu) means 'Possessor of' or 'Owner of'. It is always used as a Mudaf.\n- **ذُو مَالٍ** — Possessor of wealth (Wealthy)\n- **ذُو خُلُقٍ** — Possessor of character (Well-mannered)",
-                examples: [
-                    { arabic: "مُدِيرُنَا ذُو قَامَةٍ طَوِيلَةٍ", meaning: "Our director is tall (lit. possessor of tall stature)" },
-                    { arabic: "هَذَا الطَّالِبُ ذُو خُلُقٍ حَسَنٍ", meaning: "This student has good character" }
-                ]
-            },
-            {
-                title: "🔢 Numbers 100 and 1000",
-                content: "The numbers **مِائَةٌ** (Mi'atun — 100) and **أَلْفٌ** (Alfun — 1000) do not change gender.\nThe counted noun follows them in **Singular** and **Genitive** (as Mudaf Ilayhi).",
-                examples: [
-                    { arabic: "مِائَةُ رَجُلٍ", meaning: "100 men" },
-                    { arabic: "مِائَةُ امْرَأَةٍ", meaning: "100 women" },
-                    { arabic: "أَلْفُ دُولَارٍ", meaning: "1000 dollars" }
+                title: "📚 Vocabulary", content: "New words:", examples: [
+                    { arabic: "عَطْفٌ", meaning: "'aṭfun — Coordination" }, { arabic: "بَدَلٌ", meaning: "badalun — Apposition" },
+                    { arabic: "وَ", meaning: "wa — And" }, { arabic: "فَ", meaning: "fa — Then" },
+                    { arabic: "ثُمَّ", meaning: "thumma — Subsequently" }, { arabic: "أَوْ", meaning: "aw — Or" },
+                    { arabic: "مَعْطُوفٌ", meaning: "ma'ṭūfun — Coordinated word" }, { arabic: "مُبْدَلٌ مِنْهُ", meaning: "mubdalun minhu — Word being clarified" }
                 ]
             }
         ]
-    },
-    tasks: [
-        {
-            id: "24-1",
-            type: "multiple-choice",
-            question: "Which sentence is grammatically correct?",
-            options: ["إِنَّ الْبَيْتُ جَمِيلٌ", "إِنَّ الْبَيْتَ جَمِيلٌ", "إِنَّ الْبَيْتِ جَمِيلٌ"],
-            correctAnswer: "إِنَّ الْبَيْتَ جَمِيلٌ"
-        },
-        {
-            id: "24-2",
-            type: "word-scramble",
-            question: "Arrange: 'Maybe the exam is easy'",
-            arabic: "لَعَلَّ الْإِمْتِحَانَ سَهْلٌ",
-            scrambledWords: ["سَهْلٌ", "الْإِمْتِحَانَ", "لَعَلَّ"],
-            correctAnswer: "لَعَلَّ الْإِمْتِحَانَ سَهْلٌ"
-        },
-        {
-            id: "24-3",
-            type: "multiple-choice",
-            question: "How to say 'Wealthy' (Possessor of wealth)?",
-            options: ["ذُو مَالٍ", "ذُو مَالًا", "ذُو مَالٌ"],
-            correctAnswer: "ذُو مَالٍ"
-        },
-        {
-            id: "24-4",
-            type: "matching",
-            question: "Match particle with meaning",
-            pairs: [
-                { "arabic": "إِنَّ", "meaning": "Indeed / Verily" },
-                { "arabic": "لَعَلَّ", "meaning": "Maybe / Hopefully" },
-                { "arabic": "ذُو", "meaning": "Possessor of" },
-                { "arabic": "أَلْفٌ", "meaning": "Thousand" }
-            ]
-        },
-        {
-            id: "24-5",
-            type: "multiple-choice",
-            question: "Select correct counted noun: '100 books'",
-            options: ["مِائَةُ كُتُبٍ", "مِائَةُ كِتَابٍ", "مِائَةُ كِتَابًا"],
-            correctAnswer: "مِائَةُ كِتَابٍ"
-        },
-        {
-            id: "24-6",
-            type: "multiple-choice",
-            question: "'Zaid is hungry'. Add 'Inna':",
-            options: ["إِنَّ زَيْدٌ جَوْعَانُ", "إِنَّ زَيْدًا جَوْعَانُ", "إِنَّ زَيْدٍ جَوْعَانُ"],
-            correctAnswer: "إِنَّ زَيْدًا جَوْعَانُ"
-        },
-        {
-            id: "24-7",
-            type: "word-scramble",
-            question: "Arrange: 'Indeed Allah is with us'",
-            arabic: "إِنَّ اللهَ مَعَنَا",
-            scrambledWords: ["مَعَنَا", "اللهَ", "إِنَّ"],
-            correctAnswer: "إِنَّ اللهَ مَعَنَا"
-        },
-        {
-            id: "24-8",
-            type: "multiple-choice",
-            question: "This shirt is 'expensive' (Ghalin):",
-            options: ["غَالِيٌ", "غَالٍ", "غَالِيًا"],
-            correctAnswer: "غَالٍ"
-        },
-        {
-            id: "24-9",
-            type: "multiple-choice",
-            question: "'Or' in a question: 'Are you a doctor OR an engineer?'",
-            options: ["أَ طَبِيبٌ أَنْتَ أَمْ مُهَنْدِسٌ؟", "أَ طَبِيبٌ أَنْتَ أَوْ مُهَنْدِسٌ؟"],
-            correctAnswer: "أَ طَبِيبٌ أَنْتَ أَمْ مُهَنْدِسٌ؟"
-        },
-        {
-            id: "24-10",
-            type: "word-scramble",
-            question: "Arrange: 'This shirt has short sleeves'",
-            arabic: "هَذَا الْقَمِيصُ ذُو كُمٍّ قَصِيرٍ",
-            scrambledWords: ["كُمٍّ", "هَذَا", "ذُو", "قَصِيرٍ", "الْقَمِيصُ"],
-            correctAnswer: "هَذَا الْقَمِيصُ ذُو كُمٍّ قَصِيرٍ"
-        }
+    }, tasks: [
+        { id: "24-1", type: "multiple-choice", question: "The coordinated word (مَعْطُوف) takes which i'rāb?", options: ["Always Marfū'", "Same as the word before the particle", "Always Manṣūb", "Always Majrūr"], correctAnswer: "Same as the word before the particle" },
+        { id: "24-2", type: "multiple-choice", question: "What is Badal (البَدَلُ)?", options: ["A conjunction", "An apposition that clarifies another noun", "A preposition", "A verb form"], correctAnswer: "An apposition that clarifies another noun" },
+        { id: "24-3", type: "multiple-choice", question: "In جَاءَ مُحَمَّدٌ وَعَلِيٌّ, why is عَلِيٌّ Marfū'?", options: ["Because it is the subject", "Because it is coordinated with مُحَمَّدٌ (also Marfū')", "Because it follows a preposition", "Because it is indefinite"], correctAnswer: "Because it is coordinated with مُحَمَّدٌ (also Marfū')" },
+        { id: "24-4", type: "multiple-choice", question: "Which particle means 'subsequently/then'?", options: ["وَ", "فَ", "ثُمَّ", "أَوْ"], correctAnswer: "ثُمَّ" },
+        { id: "24-5", type: "multiple-choice", question: "Translate: جَاءَ مُحَمَّدٌ وَعَلِيٌّ", options: ["Muhammad and Ali left", "Muhammad and Ali came", "Muhammad came to Ali", "Ali went to Muhammad"], correctAnswer: "Muhammad and Ali came" },
+        { id: "24-6", type: "multiple-choice", question: "Translate: رَأَيْتُ مُحَمَّدًا وَعَلِيًّا", options: ["I saw Muhammad and Ali", "Muhammad and Ali saw me", "I went with them", "They left"], correctAnswer: "I saw Muhammad and Ali" },
+        { id: "24-7", type: "multiple-choice", question: "Translate: ذَهَبَ أَحْمَدُ ثُمَّ خَالِدٌ", options: ["Ahmad and Khalid went", "Ahmad went, then Khalid", "Khalid went, then Ahmad", "Ahmad went with Khalid"], correctAnswer: "Ahmad went, then Khalid" },
+        { id: "24-8", type: "multiple-choice", question: "What does عَطْفٌ mean?", options: ["Apposition", "Coordination", "Emphasis", "Exception"], correctAnswer: "Coordination" },
+        { id: "24-9", type: "multiple-choice", question: "What does بَدَلٌ mean?", options: ["Coordination", "Apposition", "Emphasis", "Exception"], correctAnswer: "Apposition" },
+        { id: "24-10", type: "multiple-choice", question: "What does أَوْ mean?", options: ["And", "Then", "Or", "But"], correctAnswer: "Or" }
     ]
 };

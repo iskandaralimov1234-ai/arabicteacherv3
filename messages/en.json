@@ -3,7 +3,7 @@
         "home": "Home",
         "path": "Path",
         "profile": "Profile",
-        "sync": "Sync Progress"
+        "sync": "Log in"
     },
     "home": {
         "hero": {
@@ -39,6 +39,7 @@
                 }
             }
         },
-        "footer": "© 2026 LingaQuest. Master the 88 Lessons of Madina Arabic."
+        "footer": "© 2026 LingaQuest. Master the 88 Lessons of Madina Arabic.",
+        "feedback": "Leave your feedback about the app"
     }
 }

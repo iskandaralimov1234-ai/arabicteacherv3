@@ -6,6 +6,8 @@ import { Heart, CheckCircle2, XCircle, Trophy, ArrowRight, RefreshCw, Zap } from
 import { Task, Lesson } from "../data/types";
 import { useSoundEffects } from "../hooks/useSoundEffects";
 
+import confetti from 'canvas-confetti';
+
 interface QuizProps {
     lesson: Lesson;
     onComplete: (xp: number) => void;
@@ -64,6 +66,14 @@ export default function Quiz({ lesson, onComplete, onProgressXP, onExit }: QuizP
             playSuccess();
             setXp(prev => prev + 10);
             if (onProgressXP) onProgressXP(10);
+
+            // Fire Confetti
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#059669', '#10b981', '#fbbf24']
+            });
 
             // Add floating XP animation
             const id = Date.now();
@@ -167,13 +177,15 @@ export default function Quiz({ lesson, onComplete, onProgressXP, onExit }: QuizP
                     ))}
                 </div>
 
-                <div className="flex-1 max-w-[150px] md:max-w-[200px] h-3 bg-neutral-800 rounded-full overflow-hidden relative">
+                <div className="flex-1 max-w-[150px] md:max-w-[200px] h-3 bg-neutral-900 rounded-full overflow-hidden relative border border-white/5 shadow-inner">
                     <motion.div
-                        className="absolute inset-y-0 left-0 bg-gradient-to-r from-emerald-600 to-emerald-400"
+                        className="absolute inset-y-0 left-0 bg-gradient-to-r from-emerald-600 via-emerald-400 to-emerald-300"
                         initial={{ width: 0 }}
                         animate={{ width: `${((currentTaskIndex) / lesson.tasks.length) * 100}%` }}
-                        transition={{ duration: 0.5, ease: "circOut" }}
-                    />
+                        transition={{ duration: 0.6, ease: "circOut" }}
+                    >
+                        <div className="absolute inset-0 bg-white/20 w-full h-full animate-[shimmer_2s_infinite] -translate-x-full" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)' }} />
+                    </motion.div>
                 </div>
                 <div className="text-xs md:text-sm font-mono text-neutral-500 font-bold">
                     {currentTaskIndex + 1}/{lesson.tasks.length}
@@ -199,32 +211,38 @@ export default function Quiz({ lesson, onComplete, onProgressXP, onExit }: QuizP
 
                     {currentTask.type === 'multiple-choice' && (
                         <div className="grid gap-3 md:gap-4">
-                            {currentTask.options?.map((option, idx) => (
-                                <button
-                                    key={option}
-                                    onClick={() => handleOptionSelect(option)}
-                                    className={`group relative p-4 md:p-5 rounded-2xl border text-left text-lg font-medium transition-all duration-200 active:scale-[0.98]
+                            {currentTask.options?.map((option, idx) => {
+                                const isWrongSelection = isAnswered && selectedOption === option && option !== currentTask.correctAnswer;
+                                const isCorrectSelection = isAnswered && option === currentTask.correctAnswer;
+
+                                return (
+                                    <motion.button
+                                        key={option}
+                                        onClick={() => handleOptionSelect(option)}
+                                        animate={isWrongSelection ? { x: [-5, 5, -5, 5, 0], transition: { duration: 0.4 } } : {}}
+                                        className={`group relative p-4 md:p-5 rounded-2xl border text-left text-lg font-medium transition-all duration-200
                                         ${selectedOption === option
-                                            ? 'bg-emerald-900/30 border-emerald-500/50 shadow-[0_0_30px_rgba(16,185,129,0.1)]'
-                                            : 'bg-neutral-800/50 border-white/5 hover:bg-neutral-800 hover:border-white/10'
-                                        } 
-                                        ${isAnswered && option === currentTask.correctAnswer
-                                            ? 'bg-emerald-500/20 border-emerald-500'
-                                            : isAnswered && selectedOption === option && option !== currentTask.correctAnswer
-                                                ? 'bg-red-500/20 border-red-500'
-                                                : ''
-                                        }
+                                                ? 'bg-emerald-900/30 border-emerald-500/50 shadow-[0_0_30px_rgba(16,185,129,0.1)]'
+                                                : 'bg-neutral-800/50 border-white/5 hover:bg-neutral-800 hover:border-white/10'
+                                            } 
+                                        ${isCorrectSelection
+                                                ? 'bg-emerald-500/20 border-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.2)]'
+                                                : isWrongSelection
+                                                    ? 'bg-red-500/20 border-red-500 shadow-[0_0_20px_rgba(239,68,68,0.2)]'
+                                                    : 'active:scale-[0.98]'
+                                            }
                                     `}
-                                    disabled={isAnswered}
-                                >
-                                    <div className="flex items-center justify-between">
-                                        <span>{option}</span>
-                                        {selectedOption === option && !isAnswered && (
-                                            <div className="w-3 h-3 bg-emerald-500 rounded-full animate-ping" />
-                                        )}
-                                    </div>
-                                </button>
-                            ))}
+                                        disabled={isAnswered}
+                                    >
+                                        <div className="flex items-center justify-between">
+                                            <span>{option}</span>
+                                            {selectedOption === option && !isAnswered && (
+                                                <div className="w-3 h-3 bg-emerald-500 rounded-full animate-ping" />
+                                            )}
+                                        </div>
+                                    </motion.button>
+                                );
+                            })}
                         </div>
                     )}
 
@@ -295,7 +313,7 @@ export default function Quiz({ lesson, onComplete, onProgressXP, onExit }: QuizP
                                         <div className={`font-black text-xl ${isCorrect ? 'text-emerald-400' : 'text-red-400'}`}>
                                             {isCorrect ? 'Excellent!' : 'Incorrect'}
                                         </div>
-                                        {!isCorrect && (
+                                        {!isCorrect && 'correctAnswer' in currentTask && (
                                             <div className="text-sm text-red-200/80 mt-1">
                                                 Correct answer: <span className="font-bold text-white font-arabic">{currentTask.correctAnswer}</span>
                                             </div>

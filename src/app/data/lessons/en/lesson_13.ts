@@ -2,13 +2,13 @@ import { Lesson } from '../../types';
 
 export const lesson13: Lesson = {
     id: 13,
-    title: "Lesson 13: Plural Nouns (الْجَمْعُ)",
-    grammar: "Plural Nouns & Demonstrative 'These'",
+    title: "Lesson 13: الْجَمْعُ (The Plural)",
+    grammar: "Plural Nouns & Demonstrative 'These' (Ha'ula'i)",
     theory: {
         sections: [
             {
-                title: "👥 Introduction: Plural Forms",
-                content: "In Arabic, there are three types of plurals:\n1. **Sound Masculine Plural** (ends with -ūna)\n2. **Sound Feminine Plural** (ends with -ātun)\n3. **Broken Plural** (the internal structure of the word changes)\n\nIn this lesson, we will learn these forms and how to use the demonstrative pronoun 'These' (هَؤُلَاءِ).",
+                title: "👥 Introduction: The Plural",
+                content: "In Arabic, there are three main types of plurals:\n1. **Sound Masculine Plural** (ends in -ūna)\n2. **Sound Feminine Plural** (ends in -āt)\n3. **Broken Plural** (the structure of the singular word changes entirely)\n\nIn this lesson, we will study these types and learn to use the demonstrative pronoun 'These' (**هَؤُلَاءِ**).",
                 examples: [
                     { arabic: "مُدَرِّسٌ ⬅️ مُدَرِّسُونَ", meaning: "Teacher ⬅️ Teachers" },
                     { arabic: "مُسْلِمَةٌ ⬅️ مُسْلِمَاتٌ", meaning: "Muslim woman ⬅️ Muslim women" },
@@ -17,7 +17,7 @@ export const lesson13: Lesson = {
             },
             {
                 title: "👉 Pointing to People: هَؤُلَاءِ (Ha'ula'i)",
-                content: "To point to a group of people (men or women), we use **هَؤُلَاءِ** (These).\nIt is used only for **rational beings** (humans).",
+                content: "To point to a group of people (men or women) nearby, we use **هَؤُلَاءِ** (These).\nNote: This is used only for **rational beings** (humans).",
                 examples: [
                     { arabic: "هَؤُلَاءِ رِجَالٌ", meaning: "These are men" },
                     { arabic: "هَؤُلَاءِ مُدَرِّسُونَ", meaning: "These are teachers" },
@@ -27,22 +27,22 @@ export const lesson13: Lesson = {
                 ]
             },
             {
-                title: "👨‍🏫 Sound Masculine Plural",
-                content: "Formed by adding **ـُونَ** (ūna) to the end of the singular noun.\nUsually applied to professions and participial adjectives.",
+                title: "👨‍🏫 Sound Masculine Plural (Jam' Mudhakkar Salim)",
+                content: "This is formed by adding the suffix **ـُونَ** (-ūna) to the end of the singular masculine noun.\nIt is commonly used for professions and descriptions of people.",
                 examples: [
                     { arabic: "مُهَنْدِسٌ ⬅️ مُهَنْدِسُونَ", meaning: "Engineer ⬅️ Engineers" },
                     { arabic: "مُؤْمِنٌ ⬅️ مُؤْمِنُونَ", meaning: "Believer ⬅️ Believers" },
-                    { arabic: "كَافِرٌ ⬅️ كَافِرُونَ", meaning: "Disbeliever ⬅️ Disbelievers" },
-                    { arabic: "مُجْتَهِدٌ ⬅️ مُجْتَهِدُونَ", meaning: "Hardworking (sing) ⬅️ Hardworking (pl)" },
-                    { arabic: "مُسْلِمٌ ⬅️ مُسْلِمُونَ", meaning: "Muslim ⬅️ Muslims" }
+                    { arabic: "مُجْتَهِدٌ ⬅️ مُجْتَهِدُونَ", meaning: "Hardworking ⬅️ Hardworking (pl.)" },
+                    { arabic: "مُسْلِمٌ ⬅️ مُسْلِمُونَ", meaning: "Muslim ⬅️ Muslims" },
+                    { arabic: "فَلَّاحٌ ⬅️ فَلَّاحُونَ", meaning: "Farmer ⬅️ Farmers" }
                 ]
             },
             {
-                title: "👩‍🏫 Sound Feminine Plural",
-                content: "Formed by replacing the 'Ta-Marbuta' (ة) with **ـَاتٌ** (-ātun).",
+                title: "👩‍🏫 Sound Feminine Plural (Jam' Mu'annath Salim)",
+                content: "This is formed by replacing the 'Ta-Marbuta' (ة) with the suffix **ـَاتٌ** (-ātun).",
                 examples: [
-                    { arabic: "طَبِيبَةٌ ⬅️ طَبِيبَاتٌ", meaning: "Female Doctor ⬅️ Female Doctors" },
-                    { arabic: "مُدَرِّسَةٌ ⬅️ مُدَرِّسَاتٌ", meaning: "Female Teacher ⬅️ Female Teachers" },
+                    { arabic: "طَبِيبَةٌ ⬅️ طَبِيبَاتٌ", meaning: "Doctor (f) ⬅️ Doctors (f)" },
+                    { arabic: "مُدَرِّسَةٌ ⬅️ مُدَرِّسَاتٌ", meaning: "Teacher (f) ⬅️ Teachers (f)" },
                     { arabic: "سَيَّارَةٌ ⬅️ سَيَّارَاتٌ", meaning: "Car ⬅️ Cars" },
                     { arabic: "مُسْلِمَةٌ ⬅️ مُسْلِمَاتٌ", meaning: "Muslim woman ⬅️ Muslim women" },
                     { arabic: "زَوْجَةٌ ⬅️ زَوْجَاتٌ", meaning: "Wife ⬅️ Wives" }
@@ -50,13 +50,13 @@ export const lesson13: Lesson = {
             },
             {
                 title: "🧩 Broken Plural (Jam' Taksir)",
-                content: "Many words form their plural by changing the internal structure of the word (breaking the pattern). These must be **memorized**.",
+                content: "Many Arabic words form their plural by changing the internal structure of the word itself. Unlike English 'books' (adding -s), these are like 'man' ➡️ 'men'. These forms must be **memorized** as you learn the vocabulary.",
                 examples: [
-                    { arabic: "وَلَدٌ ⬅️ أَوْلَادٌ", meaning: "Boy ⬅️ Boys/Children" },
+                    { arabic: "وَلَدٌ ⬅️ أَوْلَادٌ", meaning: "Boy ⬅️ Boys" },
                     { arabic: "رَجُلٌ ⬅️ رِجَالٌ", meaning: "Man ⬅️ Men" },
                     { arabic: "طَالِبٌ ⬅️ طُلَّابٌ", meaning: "Student ⬅️ Students" },
                     { arabic: "تَاجِرٌ ⬅️ تُجَّارٌ", meaning: "Merchant ⬅️ Merchants" },
-                    { arabic: "قَلَمٌ ⬅️ أَقْلَامٌ", meaning: "Pen ⬅️ Pens" }
+                    { arabic: "كِتَابٌ ⬅️ كُتُبٌ", meaning: "Book ⬅️ Books" }
                 ]
             }
         ]
@@ -65,14 +65,14 @@ export const lesson13: Lesson = {
         {
             id: "13-1",
             type: "multiple-choice",
-            question: "What does «هَؤُلَاءِ» mean?",
-            options: ["This", "These (for people)", "Those"],
-            correctAnswer: "These (for people)"
+            question: "How do you translate 'هَؤُلَاءِ'?",
+            options: ["This", "These (for humans)", "Those"],
+            correctAnswer: "These (for humans)"
         },
         {
             id: "13-2",
             type: "multiple-choice",
-            question: "What is the plural of «مُسْلِمٌ»?",
+            question: "What is the plural of 'مُسْلِمٌ'?",
             options: ["مُسْلِمَةٌ", "مُسْلِمُونَ", "مُسْلِمَاتٌ"],
             correctAnswer: "مُسْلِمُونَ"
         },
@@ -87,7 +87,7 @@ export const lesson13: Lesson = {
         {
             id: "13-4",
             type: "multiple-choice",
-            question: "Plural of «بِنْتٌ» (Girl):",
+            question: "Plural of 'بِنْتٌ' (Girl):",
             options: ["بَنَاتٌ", "أَبْنَاءٌ", "بِنْتَاتٌ"],
             correctAnswer: "بَنَاتٌ"
         },
@@ -108,21 +108,21 @@ export const lesson13: Lesson = {
         {
             id: "13-7",
             type: "multiple-choice",
-            question: "What is the plural of «طَالِبٌ»?",
+            question: "What is the plural of 'طَالِبٌ'?",
             options: ["طَالِبُونَ", "طُلَّابٌ", "طَالِبَاتٌ"],
             correctAnswer: "طُلَّابٌ"
         },
         {
             id: "13-8",
             type: "multiple-choice",
-            question: "How to say 'My brothers'?",
+            question: "How do you say 'My brothers'?",
             options: ["أَخِي", "إِخْوَتِي", "أَخَوَاتِي"],
             correctAnswer: "إِخْوَتِي"
         },
         {
             id: "13-9",
             type: "multiple-choice",
-            question: "Plural of «غَنِيٌّ» (Rich):",
+            question: "Choose the plural for 'غَنِيٌّ' (Rich):",
             options: ["غَنِيُّونَ", "أَغْنِيَاءُ", "غَنِيَّاتٌ"],
             correctAnswer: "أَغْنِيَاءُ"
         },

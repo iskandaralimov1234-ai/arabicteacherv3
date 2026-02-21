@@ -1,123 +1,37 @@
 import { Lesson } from '../../types';
-
 export const lesson25: Lesson = {
-    id: 25,
-    title: "Lesson 25: Negation (Laisa) & 'But' (Lākinna)",
-    grammar: "Laisa (Is not), Lakinna (But)",
-    theory: {
+    id: 25, title: "Lesson 25: Emphasis (Tawkīd) (الدَّرْسُ الْخَامِسُ وَالْعِشْرُونَ - التَّوْكِيدُ)", grammar: "Emphasis (Tawkīd)", theory: {
         sections: [
+            { title: "📖 Description", content: "Tawkīd (التَّوْكِيدُ — Emphasis) is used to reinforce or emphasize. Two types: Tawkīd Lafẓī (verbal — repeating the word) and Tawkīd Ma'nawī (meaning — using special words like نَفْسُ, عَيْنُ, كُلُّ, جَمِيعُ)." },
+            { title: "📝 Key Rules", content: "- Tawkīd Lafẓī: repeat the word → جَاءَ جَاءَ (he came, he came!)\\n- Tawkīd Ma'nawī: uses emphasis words that agree in i'rāb\\n- نَفْسُ / عَيْنُ = himself/herself (with pronoun suffix)\\n- كُلُّ / جَمِيعُ = all/entirely\\n- The emphasis word takes the same i'rāb as the emphasized word" },
             {
-                title: "⛔ The Verb of Negation 'Laisa' (لَيْسَ)",
-                content: "**لَيْسَ** (Laisa) translates as 'Is not'. It is a verb that makes the predicate (Khabar) **Accusative** (Nasb — Fatha).\nIt works similarly to 'Kāna' (Was).",
-                examples: [
-                    { arabic: "الْبَيْتُ جَدِيدٌ", meaning: "The house is new" },
-                    { arabic: "لَيْسَ الْبَيْتُ جَدِيدًا", meaning: "The house is NOT new (Jadidan - Fatha)" },
-                    { arabic: "لَيْسَ الْمُدَرِّسُ كَبِيرًا", meaning: "The teacher is not old" }
+                title: "🗣️ Examples", content: "Examples:", examples: [
+                    { arabic: "جَاءَ الْمُدِيرُ نَفْسُهُ", meaning: "Jā'a al-mudīru nafsuhu — The director himself came (Tawkīd Ma'nawī — Marfū')" },
+                    { arabic: "رَأَيْتُ الْمُعَلِّمَ عَيْنَهُ", meaning: "Ra'aytu al-mu'allima 'aynahu — I saw the teacher himself (Tawkīd Ma'nawī — Manṣūb)" },
+                    { arabic: "حَضَرَ الطُّلَّابُ كُلُّهُمْ", meaning: "Ḥaḍara al-ṭullābu kulluhum — All the students attended (Tawkīd Ma'nawī — كُلُّ)" },
+                    { arabic: "قَرَأْتُ الْكِتَابَ الْكِتَابَ", meaning: "Qara'tu al-kitāba al-kitāba — I read the book, THE BOOK! (Tawkīd Lafẓī — repetition)" },
+                    { arabic: "جَاءَ الطُّلَّابُ جَمِيعُهُمْ", meaning: "Jā'a al-ṭullābu jamī'uhum — All the students came (جَمِيعُ — all)" }
                 ]
             },
             {
-                title: "🖇️ Construction with 'Bi' (بِـ)",
-                content: "Often, the letter **بِـ** (Bi) acts as a preposition attached to the predicate of 'Laisa'. In this case, the word is in the **Genitive case** (Kasra). The meaning remains the same.",
-                examples: [
-                    { arabic: "لَيْسَ الْبَيْتُ بِجَدِيدٍ", meaning: "The house is not new (Bi-Jadidin)" },
-                    { arabic: "أَ لَسْتَ بِمُهَنْدِسٍ؟", meaning: "Are you not an engineer?" }
-                ]
-            },
-            {
-                title: "☝️ 'But' (لَكِنَّ)",
-                content: "**لَكِنَّ** (Lākinna) is a 'sister' of Inna. It translates as 'But' or 'However'.\nIt puts the following noun (or attached pronoun) into the **Accusative case** (Nasb — Fatha).",
-                examples: [
-                    { arabic: "الْبَيْتُ جَمِيلٌ لَكِنَّهُ صَغِيرٌ", meaning: "The house is beautiful, BUT it is small" },
-                    { arabic: "أَنَا طَالِبٌ لَكِنَّ أَخِي طَبِيبٌ", meaning: "I am a student, BUT my brother is a doctor" }
-                ]
-            },
-            {
-                title: "💡 New Vocabulary",
-                content: "Remember these antonyms:\n- **غَالٍ** (Ghālin) — Expensive ↔ **رَخِيصٌ** (Rakhīṣ) — Cheap\n- **ذَكِيٌّ** (Dhakīyy) — Smart ↔ **غَبِيٌّ** (Ghabīyy) — Stupid\n- **مُتَزَوِّجٌ** (Mutazawwij) — Married ↔ **أَعْزَبُ** (A'zab) — Single",
-                examples: [
-                    { arabic: "هَذَا الْقَلَمُ غَالٍ", meaning: "This pen is expensive" },
-                    { arabic: "هُوَ ذَكِيٌّ جِدًّا", meaning: "He is very smart" }
+                title: "📚 Vocabulary", content: "New words:", examples: [
+                    { arabic: "تَوْكِيدٌ", meaning: "tawkīdun — Emphasis" }, { arabic: "لَفْظِيٌّ", meaning: "lafẓiyyun — Verbal (repetition)" },
+                    { arabic: "مَعْنَوِيٌّ", meaning: "ma'nawiyyun — Meaning-based" }, { arabic: "نَفْسٌ", meaning: "nafsun — Self" },
+                    { arabic: "عَيْنٌ", meaning: "'aynun — Very same" }, { arabic: "كُلٌّ", meaning: "kullun — All/Every" },
+                    { arabic: "جَمِيعٌ", meaning: "jamī'un — All/Entire" }, { arabic: "أَجْمَعُونَ", meaning: "ajma'ūna — All together" }
                 ]
             }
         ]
-    },
-    tasks: [
-        {
-            id: "25-1",
-            type: "multiple-choice",
-            question: "Which sentence is correct? (Laisa without Bi)",
-            options: ["لَيْسَ الْبَيْتُ كَبِيرًا", "لَيْسَ الْبَيْتُ كَبِيرٌ", "لَيْسَ الْبَيْتُ كَبِيرٍ"],
-            correctAnswer: "لَيْسَ الْبَيْتُ كَبِيرًا"
-        },
-        {
-            id: "25-2",
-            type: "multiple-choice",
-            question: "Which sentence is correct? (Laisa with Bi)",
-            options: ["لَيْسَ الْبَيْتُ بِكَبِيرًا", "لَيْسَ الْبَيْتُ بِكَبِيرٌ", "لَيْسَ الْبَيْتُ بِكَبِيرٍ"],
-            correctAnswer: "لَيْسَ الْبَيْتُ بِكَبِيرٍ"
-        },
-        {
-            id: "25-3",
-            type: "word-scramble",
-            question: "Arrange: 'Muhammad is a doctor but Zaid is a nurse'",
-            arabic: "مُحَمَّدٌ طَبِيبٌ لَكِنَّ زَيْدًا مُمَرِّضٌ",
-            scrambledWords: ["طَبِيبٌ", "لَكِنَّ", "مُحَمَّدٌ", "مُمَرِّضٌ", "زَيْدًا"],
-            correctAnswer: "مُحَمَّدٌ طَبِيبٌ لَكِنَّ زَيْدًا مُمَرِّضٌ"
-        },
-        {
-            id: "25-4",
-            type: "matching",
-            question: "Match antonyms",
-            pairs: [
-                { "arabic": "غَالٍ", "meaning": "Cheap" },
-                { "arabic": "ذَكِيٌّ", "meaning": "Stupid" },
-                { "arabic": "مُتَزَوِّجٌ", "meaning": "Single" },
-                { "arabic": "كَبِيرٌ", "meaning": "Small" }
-            ]
-        },
-        {
-            id: "25-5",
-            type: "multiple-choice",
-            question: "How to say 'This book is cheap'?",
-            options: ["هَذَا الْكِتَابُ رَخِيصٌ", "هَذَا الْكِتَابُ غَالٍ", "هَذَا الْكِتَابُ رَخِيصًا"],
-            correctAnswer: "هَذَا الْكِتَابُ رَخِيصٌ"
-        },
-        {
-            id: "25-6",
-            type: "multiple-choice",
-            question: "Form of 'Expensive' (Ghālin) without Al:",
-            options: ["غَالِيٌ", "غَالٍ", "غَالِيًا"],
-            correctAnswer: "غَالٍ"
-        },
-        {
-            id: "25-7",
-            type: "word-scramble",
-            question: "Arrange: 'Are you not a student?'",
-            arabic: "أَ لَسْتَ بِطَالِبٍ؟",
-            scrambledWords: ["بِطَالِبٍ؟", "أَ", "لَسْتَ"],
-            correctAnswer: "أَ لَسْتَ بِطَالِبٍ؟"
-        },
-        {
-            id: "25-8",
-            type: "multiple-choice",
-            question: "'...but he is lazy'",
-            options: ["لَكِنَّهُ كَسْلَانُ", "لَكِنَّهُ كَسْلَانٍ", "لَكِنَّهُ كَسْلَانٌ"],
-            correctAnswer: "لَكِنَّهُ كَسْلَانُ"
-        },
-        {
-            id: "25-9",
-            type: "multiple-choice",
-            question: "Translate: 'Zaid is not sick'",
-            options: ["لَيْسَ زَيْدٌ مَرِيضًا", "لَيْسَ زَيْدًا مَرِيضٌ", "لَيْسَ زَيْدٌ مَرِيضٌ"],
-            correctAnswer: "لَيْسَ زَيْدٌ مَرِيضًا"
-        },
-        {
-            id: "25-10",
-            type: "word-scramble",
-            question: "Arrange: 'America is big is but it is far'",
-            arabic: "أَمْرِيكَا كَبِيرَةٌ لَكِنَّهَا بَعِيدَةٌ",
-            scrambledWords: ["لَكِنَّهَا", "أَمْرِيكَا", "بَعِيدَةٌ", "كَبِيرَةٌ"],
-            correctAnswer: "أَمْرِيكَا كَبِيرَةٌ لَكِنَّهَا بَعِيدَةٌ"
-        }
+    }, tasks: [
+        { id: "25-1", type: "multiple-choice", question: "How many types of Tawkīd are there?", options: ["One", "Two", "Three", "Four"], correctAnswer: "Two" },
+        { id: "25-2", type: "multiple-choice", question: "Tawkīd Lafẓī means:", options: ["Using نَفْسُ or عَيْنُ", "Repeating the word itself", "Adding a preposition", "Changing the vowel"], correctAnswer: "Repeating the word itself" },
+        { id: "25-3", type: "multiple-choice", question: "In جَاءَ الْمُدِيرُ نَفْسُهُ, why is نَفْسُ in ḍamma?", options: ["Because it is always Marfū'", "Because it agrees with الْمُدِيرُ which is Marfū'", "Because it is indefinite", "Because it is the subject"], correctAnswer: "Because it agrees with الْمُدِيرُ which is Marfū'" },
+        { id: "25-4", type: "multiple-choice", question: "Which word means 'all' in emphasis?", options: ["نَفْسٌ", "عَيْنٌ", "كُلٌّ", "بَعْضٌ"], correctAnswer: "كُلٌّ" },
+        { id: "25-5", type: "multiple-choice", question: "Translate: جَاءَ الْمُدِيرُ نَفْسُهُ", options: ["The director went", "The director himself came", "The director's self", "The director left"], correctAnswer: "The director himself came" },
+        { id: "25-6", type: "multiple-choice", question: "Translate: حَضَرَ الطُّلَّابُ كُلُّهُمْ", options: ["Some students attended", "All the students attended", "The students left", "A student attended"], correctAnswer: "All the students attended" },
+        { id: "25-7", type: "multiple-choice", question: "Translate: رَأَيْتُ الْمُعَلِّمَ عَيْنَهُ", options: ["I saw a teacher", "I saw the teacher himself", "I saw the teacher's eye", "The teacher saw me"], correctAnswer: "I saw the teacher himself" },
+        { id: "25-8", type: "multiple-choice", question: "What does تَوْكِيدٌ mean?", options: ["Emphasis", "Exception", "Coordination", "Apposition"], correctAnswer: "Emphasis" },
+        { id: "25-9", type: "multiple-choice", question: "What does نَفْسٌ mean in Tawkīd?", options: ["Soul only", "Self (for emphasis)", "Body", "Mind"], correctAnswer: "Self (for emphasis)" },
+        { id: "25-10", type: "multiple-choice", question: "What does جَمِيعٌ mean?", options: ["Some", "All/Entire", "Half", "Part"], correctAnswer: "All/Entire" }
     ]
 };

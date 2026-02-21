@@ -3,7 +3,7 @@
         "home": "Bosh sahifa",
         "path": "Yo'l",
         "profile": "Profil",
-        "sync": "Sinxronlash"
+        "sync": "Kirish"
     },
     "home": {
         "hero": {
@@ -39,6 +39,7 @@
                 }
             }
         },
-        "footer": "© 2026 LingaQuest. Madina arab tili kursini o'zlashtiring."
+        "footer": "© 2026 LingaQuest. Madina arab tili kursini o'zlashtiring.",
+        "feedback": "Ilova haqida fikringizni qoldiring"
     }
 }

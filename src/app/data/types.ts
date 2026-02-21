@@ -1,4 +1,4 @@
-export type TaskType = 'multiple-choice' | 'word-scramble' | 'translate';
+export type TaskType = 'multiple-choice' | 'word-scramble' | 'translate' | 'matching';
 
 export interface BaseTask {
     id: string;
@@ -24,7 +24,12 @@ export interface TranslateTask extends BaseTask {
     correctAnswer: string;
 }
 
-export type Task = MultipleChoiceTask | WordScrambleTask | TranslateTask;
+export interface MatchingTask extends BaseTask {
+    type: 'matching';
+    pairs: { arabic: string; meaning: string }[];
+}
+
+export type Task = MultipleChoiceTask | WordScrambleTask | TranslateTask | MatchingTask;
 
 export interface TheorySection {
     title: string;

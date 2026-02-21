@@ -2,124 +2,55 @@ import { Lesson } from '../../types';
 
 export const lesson15: Lesson = {
     id: 15,
-    title: "Lesson 15: Feminine Plural (أَنْتُنَّ)",
-    grammar: "Feminine Plural Pronouns & Verbs",
+    title: "Lesson 15: The Dual (Al-Muthannā) (الدَّرْسُ الْخَامِسَ عَشَرَ - الْمُثَنَّى)",
+    grammar: "The Dual (Al-Muthannā)",
     theory: {
         sections: [
             {
-                title: "👥 The Pronoun 'You' (Feminine Plural)",
-                content: "To address a group of women, we use the pronoun **أَنْتُنَّ** (Antunna) — 'You all' (feminine).\nThis is the feminine counterpart to 'Antum'.",
+                title: "📖 Description",
+                content: "The dual number (الْمُثَنَّى — Al-Muthannā) is used to refer to exactly two things. Unlike English, which simply adds 's' for plurals, Arabic has a special form for pairs. The dual is formed by adding specific suffixes to the singular noun."
+            },
+            {
+                title: "📝 Key Rules",
+                content: "- In the Marfū' state (مَرْفُوعٌ): add -āni (انِ) → كِتَابَانِ (two books)\\n- In the Manṣūb/Majrūr states (مَنْصُوبٌ / مَجْرُورٌ): add -ayni (يْنِ) → كِتَابَيْنِ\\n- The adjective must also agree in dual form\\n- Feminine nouns: the tā' marbūṭa (ة) changes to tā' maftūḥa (ت) before the suffix"
+            },
+            {
+                title: "🗣️ Examples",
+                content: "Pay attention to the following examples:",
                 examples: [
-                    { arabic: "أَنْتُنَّ طَالِبَاتٌ", meaning: "You are female students" },
-                    { arabic: "أَنْتُنَّ مُدَرِّسَاتٌ", meaning: "You are female teachers" },
-                    { arabic: "مَنْ أَنْتُنَّ؟", meaning: "Who are you (women)?" }
+                    { arabic: "كِتَابَانِ جَدِيدَانِ", meaning: "Kitābāni jadīdāni — Two new books (dual: -āni, Marfū' state)" },
+                    { arabic: "فِي بَيْتَيْنِ كَبِيرَيْنِ", meaning: "Fī baytayni kabīrayni — In two big houses (dual: -ayni, Majrūr after preposition)" },
+                    { arabic: "رَأَيْتُ مُعَلِّمَيْنِ", meaning: "Ra'aytu mu'allimayni — I saw two teachers (dual: -ayni, Manṣūb as direct object)" },
+                    { arabic: "هَذَانِ طَالِبَانِ مُجْتَهِدَانِ", meaning: "Hādhāni ṭālibāni mujtahidāni — These are two diligent students (demonstrative + dual in Marfū')" },
+                    { arabic: "مُدَرِّسَتَانِ فَاضِلَتَانِ", meaning: "Mudarrisatāni fāḍilatāni — Two virtuous female teachers (feminine dual)" }
                 ]
             },
             {
-                title: "🔗 Attached Pronoun 'Your' (Feminine Plural)",
-                content: "When saying 'Your house' (addressing women), we use the suffix **ـكُنَّ** (-kunna).",
+                title: "📚 Vocabulary",
+                content: "New words from this lesson:",
                 examples: [
-                    { arabic: "بَيْتُكُنَّ", meaning: "Your house (fem. pl.)" },
-                    { arabic: "هَذِهِ مَدْرَسَتُكُنَّ", meaning: "This is your school" },
-                    { arabic: "أَيْنَ أُخْتُكُنَّ؟", meaning: "Where is your sister?" }
-                ]
-            },
-            {
-                title: "🏃‍♀️ Past Tense Verbs (They - Feminine)",
-                content: "To describe the action of a group of women (They went), we add **ـْنَ** (Nun al-Niswa) to the verb:\n\n- **ذَهَبْنَ** (Dhahabna) — They (women) went\n- **خَرَجْنَ** (Kharajna) — They went out",
-                examples: [
-                    { arabic: "الطَّالِبَاتُ ذَهَبْنَ", meaning: "The female students went" },
-                    { arabic: "ذَهَبْنَ إِلَى الْفَصْلِ", meaning: "They went to the classroom" }
-                ]
-            },
-            {
-                title: "⏱ Adverbs of Time: قَبْلَ and بَعْدَ",
-                content: "The words **قَبْلَ** (Qabla - Before) and **بَعْدَ** (Ba'da - After) are always used in an Idafa construction (the following noun has a kasra).\nThey usually end with a fatha.",
-                examples: [
-                    { arabic: "قَبْلَ الصَّلَاةِ", meaning: "Before the prayer" },
-                    { arabic: "بَعْدَ الدَّرْسِ", meaning: "After the lesson" },
-                    { arabic: "قَبْلَ الأَذَانِ", meaning: "Before the Adhan" }
+                    { arabic: "مُثَنًّى", meaning: "muthannā — Dual number" },
+                    { arabic: "-انِ", meaning: "-āni — Dual suffix (Marfū' state)" },
+                    { arabic: "-يْنِ", meaning: "-ayni — Dual suffix (Manṣūb/Majrūr states)" },
+                    { arabic: "هَذَانِ", meaning: "hādhāni — These two (masculine)" },
+                    { arabic: "هَاتَانِ", meaning: "hātāni — These two (feminine)" },
+                    { arabic: "كِلَا", meaning: "kilā — Both (masculine)" },
+                    { arabic: "كِلْتَا", meaning: "kiltā — Both (feminine)" },
+                    { arabic: "اثْنَانِ", meaning: "ithnāni — Two (masculine)" }
                 ]
             }
         ]
     },
     tasks: [
-        {
-            id: "15-1",
-            type: "multiple-choice",
-            question: "How to say 'You all' to a group of women?",
-            options: ["أَنْتُمْ", "أَنْتُنَّ", "هُنَّ"],
-            correctAnswer: "أَنْتُنَّ"
-        },
-        {
-            id: "15-2",
-            type: "multiple-choice",
-            question: "'Your book' (addressing women):",
-            options: ["كِتَابُكُمْ", "كِتَابُكُنَّ", "كِتَابُهُمْ"],
-            correctAnswer: "كِتَابُكُنَّ"
-        },
-        {
-            id: "15-3",
-            type: "word-scramble",
-            question: "Arrange: 'Where is your school, O sisters?'",
-            arabic: "أَيْنَ مَدْرَسَتُكُنَّ يَا أَخَوَاتُ؟",
-            scrambledWords: ["يَا", "أَخَوَاتُ؟", "مَدْرَسَتُكُنَّ", "أَيْنَ"],
-            correctAnswer: "أَيْنَ مَدْرَسَتُكُنَّ يَا أَخَوَاتُ؟"
-        },
-        {
-            id: "15-4",
-            type: "multiple-choice",
-            question: "How to say 'They (women) went out'?",
-            options: ["خَرَجُوا", "خَرَجْنَ", "خَرَجَتْ"],
-            correctAnswer: "خَرَجْنَ"
-        },
-        {
-            id: "15-5",
-            type: "multiple-choice",
-            question: "Translate: 'Before the lesson'",
-            options: ["قَبْلَ الدَّرْسِ", "بَعْدَ الدَّرْسِ", "فِي الدَّرْسِ"],
-            correctAnswer: "قَبْلَ الدَّرْسِ"
-        },
-        {
-            id: "15-6",
-            type: "word-scramble",
-            question: "Arrange: 'We went after the prayer'",
-            arabic: "ذَهَبْنَا بَعْدَ الصَّلَاةِ",
-            scrambledWords: ["الصَّلَاةِ", "بَعْدَ", "ذَهَبْنَا"],
-            correctAnswer: "ذَهَبْنَا بَعْدَ الصَّلَاةِ"
-        },
-        {
-            id: "15-7",
-            type: "matching",
-            question: "Match verb and subject",
-            pairs: [
-                { "arabic": "ذَهَبُوا", "meaning": "They (M) went" },
-                { "arabic": "ذَهَبْنَ", "meaning": "They (F) went" },
-                { "arabic": "ذَهَبْتُمْ", "meaning": "You (M) went" },
-                { "arabic": "ذَهَبْنَا", "meaning": "We went" }
-            ]
-        },
-        {
-            id: "15-8",
-            type: "multiple-choice",
-            question: "Plural of «أُخْتٌ» (sister):",
-            options: ["إِخْوَةٌ", "أَخَوَاتٌ", "أُخْتَاتٌ"],
-            correctAnswer: "أَخَوَاتٌ"
-        },
-        {
-            id: "15-9",
-            type: "multiple-choice",
-            question: "'Who are you, O women?'",
-            options: ["مَنْ أَنْتُنَّ يَا نِسَاءُ؟", "مَنْ أَنْتُمْ يَا نِسَاءُ؟", "مَنْ هُنَّ يَا نِسَاءُ؟"],
-            correctAnswer: "مَنْ أَنْتُنَّ يَا نِسَاءُ؟"
-        },
-        {
-            id: "15-10",
-            type: "word-scramble",
-            question: "Arrange: 'They (women) returned from school'",
-            arabic: "رَجَعْنَ مِنَ الْمَدْرَسَةِ",
-            scrambledWords: ["الْمَدْرَسَةِ", "مِنَ", "رَجَعْنَ"],
-            correctAnswer: "رَجَعْنَ مِنَ الْمَدْرَسَةِ"
-        }
+        { id: "15-1", type: "multiple-choice", question: "What suffix marks the dual in the Marfū' (مَرْفُوعٌ) state?", options: ["-ayni", "-āni", "-ūna", "-ātu"], correctAnswer: "-āni" },
+        { id: "15-2", type: "multiple-choice", question: "What suffix marks the dual in the Manṣūb/Majrūr states?", options: ["-āni", "-ayni", "-ūna", "-īna"], correctAnswer: "-ayni" },
+        { id: "15-3", type: "multiple-choice", question: "Why does كِتَابَيْنِ end with -ayni in رَأَيْتُ كِتَابَيْنِ?", options: ["Because it is Marfū'", "Because it is Manṣūb (direct object)", "Because it is indefinite", "Because it is feminine"], correctAnswer: "Because it is Manṣūb (direct object)" },
+        { id: "15-4", type: "multiple-choice", question: "How do you say 'These two (feminine)' in Arabic?", options: ["هَذَانِ", "هَاتَانِ", "أُولَئِكَ", "هَؤُلَاءِ"], correctAnswer: "هَاتَانِ" },
+        { id: "15-5", type: "multiple-choice", question: "Translate: كِتَابَانِ جَدِيدَانِ", options: ["A new book", "Two new books", "The new books", "New books"], correctAnswer: "Two new books" },
+        { id: "15-6", type: "multiple-choice", question: "Translate: رَأَيْتُ مُعَلِّمَيْنِ", options: ["I saw a teacher", "I saw two teachers", "I saw the teacher", "I saw teachers"], correctAnswer: "I saw two teachers" },
+        { id: "15-7", type: "multiple-choice", question: "Translate: فِي بَيْتَيْنِ كَبِيرَيْنِ", options: ["In a big house", "In two big houses", "In big houses", "In the big house"], correctAnswer: "In two big houses" },
+        { id: "15-8", type: "multiple-choice", question: "What does مُثَنًّى mean?", options: ["Plural", "Dual number", "Singular", "Broken plural"], correctAnswer: "Dual number" },
+        { id: "15-9", type: "multiple-choice", question: "What does كِلَا mean?", options: ["All", "Both (masculine)", "Two", "Every"], correctAnswer: "Both (masculine)" },
+        { id: "15-10", type: "multiple-choice", question: "What does اثْنَانِ mean?", options: ["One", "Two (masculine)", "Three", "Both"], correctAnswer: "Two (masculine)" }
     ]
 };

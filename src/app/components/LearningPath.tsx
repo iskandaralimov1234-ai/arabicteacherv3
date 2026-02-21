@@ -20,17 +20,16 @@ export default function LearningPath({ currentLessonId, completedLessons, onSele
         const data = curriculum.find(l => l.id === id);
         const isCompleted = completedLessons.includes(id);
 
-        // A lesson is locked if it's not completed AND it's more than 1 lesson ahead of the furthest completed one.
-        // Also, if the lesson data (content) is missing, it's effectively locked.
-        const isLocked = !isCompleted && id > maxCompleted + 1;
-        const canPlay = !isLocked && !!data;
+        // All lessons are unlocked as requested by the user.
+        const isLocked = false;
+        const canPlay = !!data;
         const isCurrent = id === maxCompleted + 1;
 
         return {
             id,
             title: data ? data.title : `Lesson ${id}`,
             isCompleted,
-            isLocked: isLocked || !data,
+            isLocked,
             canPlay,
             isCurrent: isCurrent && !!data
         };
@@ -61,7 +60,7 @@ export default function LearningPath({ currentLessonId, completedLessons, onSele
                             className={`flex items-center ${isLeft ? 'flex-row' : 'flex-row-reverse'} justify-center relative`}
                         >
                             {/* Connecting Dash (Ornamental) */}
-                            <div className={`absolute top-1/2 -translate-y-1/2 w-1/2 h-1 border-b-2 border-dashed border-neutral-800/50 ${isLeft ? 'right-1/2 origin-right' : 'left-1/2 origin-left'} -z-10`} />
+                            <div className={`absolute top-1/2 -translate-y-1/2 w-1/2 h-1 border-b-2 ${item.isCompleted ? 'border-emerald-500/50 drop-shadow-[0_0_10px_rgba(16,185,129,0.6)] border-solid' : item.isCurrent ? 'border-amber-500/50 border-dashed drop-shadow-[0_0_10px_rgba(251,191,36,0.6)]' : 'border-dashed border-neutral-800/50'} ${isLeft ? 'right-1/2 origin-right' : 'left-1/2 origin-left'} -z-10`} />
 
                             {/* Node Button */}
                             <button
@@ -69,10 +68,12 @@ export default function LearningPath({ currentLessonId, completedLessons, onSele
                                 disabled={item.isLocked}
                                 className={`relative w-20 h-20 md:w-24 md:h-24 rounded-[2rem] flex items-center justify-center border-b-4 transition-all duration-300 z-20 group outline-none focus:ring-4 focus:ring-emerald-500/30
                                     ${item.isCompleted
-                                        ? 'bg-emerald-500 border-emerald-700 shadow-[0_10px_0_rgb(4,120,87)] active:shadow-none active:translate-y-[10px]'
+                                        ? 'bg-gradient-to-b from-emerald-400 to-emerald-600 border-emerald-700 shadow-[0_10px_0_rgb(4,120,87),0_0_25px_rgba(16,185,129,0.3)] active:shadow-none active:translate-y-[10px]'
                                         : item.isCurrent
-                                            ? 'bg-amber-400 border-amber-600 shadow-[0_10px_0_rgb(217,119,6)] active:shadow-none active:translate-y-[10px] animate-bounce-subtle'
-                                            : 'bg-neutral-800 border-neutral-900 text-neutral-600 shadow-[0_10px_0_rgb(23,23,23)] opacity-80 cursor-not-allowed'
+                                            ? 'bg-gradient-to-b from-amber-300 to-amber-500 border-amber-600 shadow-[0_10px_0_rgb(217,119,6),0_0_35px_rgba(251,191,36,0.4)] active:shadow-none active:translate-y-[10px] animate-bounce-subtle'
+                                            : item.isLocked
+                                                ? 'bg-neutral-800 border-neutral-900 text-neutral-600 shadow-[0_10px_0_rgb(23,23,23)] opacity-80 cursor-not-allowed'
+                                                : 'bg-neutral-800 border-neutral-700 text-neutral-400 shadow-[0_10px_0_rgb(38,38,38)] hover:bg-neutral-700 hover:text-white active:shadow-none active:translate-y-[10px]'
                                     }
                                 `}
                             >
@@ -82,8 +83,10 @@ export default function LearningPath({ currentLessonId, completedLessons, onSele
                                         <Check size={32} className="text-white drop-shadow-md" strokeWidth={3} />
                                     ) : item.isCurrent ? (
                                         <Star size={32} className="text-amber-900 fill-amber-900" />
-                                    ) : (
+                                    ) : item.isLocked ? (
                                         <Lock size={24} />
+                                    ) : (
+                                        <Play size={24} className="fill-current" />
                                     )}
                                 </div>
 
@@ -107,11 +110,13 @@ export default function LearningPath({ currentLessonId, completedLessons, onSele
                                             ? 'bg-neutral-900/90 border-amber-500/50 text-white'
                                             : item.isCompleted
                                                 ? 'bg-neutral-900/80 border-emerald-500/30 text-emerald-100'
-                                                : 'bg-neutral-900/60 border-neutral-800 text-neutral-500'
+                                                : item.isLocked
+                                                    ? 'bg-neutral-900/60 border-neutral-800 text-neutral-500'
+                                                    : 'bg-neutral-900/80 border-white/10 text-white'
                                         }
                                     `}>
                                         <div className="text-xs font-bold font-mono tracking-widest opacity-70 mb-1 uppercase">
-                                            {item.isCurrent ? 'Current Mission' : item.isCompleted ? 'Completed' : 'Locked'}
+                                            {item.isCurrent ? 'Current Mission' : item.isCompleted ? 'Completed' : item.isLocked ? 'Locked' : 'Available'}
                                         </div>
                                         <div className="font-bold text-sm md:text-base leading-tight">
                                             {item.title}

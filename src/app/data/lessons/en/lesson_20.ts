@@ -1,123 +1,37 @@
 import { Lesson } from '../../types';
-
 export const lesson20: Lesson = {
-    id: 20,
-    title: "Lesson 20: Numbers 3-10 (Feminine)",
-    grammar: "Numbers 3-10 with Feminine Nouns",
-    theory: {
+    id: 20, title: "Lesson 20: Numbers 100 and 1000 (الدَّرْسُ الْعِشْرُونَ - مِائَةٌ وَأَلْفٌ)", grammar: "Numbers 100 and 1000", theory: {
         sections: [
+            { title: "📖 Description", content: "مِائَةٌ (one hundred) and أَلْفٌ (one thousand) are followed by a singular noun in the Majrūr (مَجْرُورٌ) state. They do not change for gender and form an iḍāfa with the counted noun." },
+            { title: "📝 Key Rules", content: "- مِائَةٌ (100): counted noun = singular Majrūr\\n- أَلْفٌ (1000): counted noun = singular Majrūr\\n- مِائَتَانِ (200): dual of مِائَة\\n- Multiples: ثَلَاثُمِائَةٍ (300), أَرْبَعُمِائَةٍ (400)...\\n- No gender change for مِائَة and أَلْف" },
             {
-                title: "🔢 Numbers 3-10 with Feminine Nouns",
-                content: "We learned that with Masculine nouns, numbers 3-10 take a 'feminine' ending (with ة).\nWith **Feminine nouns**, it's the opposite: numbers take the 'masculine' form (WITHOUT ة)!\nThis is called 'Gender Polarity' in numbers.",
-                examples: [
-                    { arabic: "ثَلَاثُ طَالِبَاتٍ", meaning: "Three female students (Thalathu - no ة)" },
-                    { arabic: "أَرْبَعُ سَيَّارَاتٍ", meaning: "Four cars (Arba'u - no ة)" },
-                    { arabic: "عَشْرُ نِسَاءٍ", meaning: "Ten women ('Ashru - no ة)" }
+                title: "🗣️ Examples", content: "Examples:", examples: [
+                    { arabic: "مِائَةُ كِتَابٍ", meaning: "Mi'atu kitābin — One hundred books (singular Majrūr)" },
+                    { arabic: "أَلْفُ طَالِبٍ", meaning: "Alfu ṭālibin — One thousand students (singular Majrūr)" },
+                    { arabic: "مِائَتَانِ وَخَمْسُونَ", meaning: "Mi'atāni wa khamsūna — Two hundred and fifty" },
+                    { arabic: "ثَلَاثُمِائَةِ سَنَةٍ", meaning: "Thalāthu mi'ati sanatin — Three hundred years" },
+                    { arabic: "أَلْفَا دِينَارٍ", meaning: "Alfā dīnārin — Two thousand dinars (dual of أَلْف)" }
                 ]
             },
             {
-                title: "📏 The Counted Noun Rule",
-                content: "The counted noun (Ma'dūd) must be **Plural** and **Genitive** (Majrūr - Kasra/Tanwin Kasra).\nIt works like an Idafa: The Number is the Mudaf, and the Counted Noun is the Mudaf Ilayhi.",
-                examples: [
-                    { arabic: "خَمْسُ صَلَوَاتٍ", meaning: "Five prayers" },
-                    { arabic: "سِتُّ مُمَرِّضَاتٍ", meaning: "Six nurses" }
-                ]
-            },
-            {
-                title: "🕵️ How to determine gender?",
-                content: "To avoid mistakes, always look at the **Singular form** of the word.\nFor example, 'Gardens' (Hada'iq) is feminine because the singular is 'Hadiqa' (Garden). So the number will be without ة.",
-                examples: [
-                    { arabic: "هَذِهِ ثَلَاثُ حَدَائِقَ", meaning: "These are three gardens" },
-                    { arabic: "تِسْعُ آيَاتٍ", meaning: "Nine verses (Singular 'Ayah' is fem.)" }
-                ]
-            },
-            {
-                title: "📝 Summary Table (3-10)",
-                content: "- 3: **ثَلَاثُ**\n- 4: **أَرْبَعُ**\n- 5: **خَمْسُ**\n- 6: **سِتُّ**\n- 7: **سَبْعُ**\n- 8: **ثَمَانِي** (special form)\n- 9: **تِسْعُ**\n- 10: **عَشْرُ**",
-                examples: [
-                    { arabic: "فِي الْبَيْتِ ثَمَانِي غُرَفٍ", meaning: "In the house are eight rooms" },
-                    { arabic: "عِنْدِي سَبْعُ بَنَاتٍ", meaning: "I have seven daughters" }
+                title: "📚 Vocabulary", content: "New words:", examples: [
+                    { arabic: "مِائَةٌ", meaning: "mi'atun — One hundred" }, { arabic: "أَلْفٌ", meaning: "alfun — One thousand" },
+                    { arabic: "مِائَتَانِ", meaning: "mi'atāni — Two hundred" }, { arabic: "أَلْفَانِ", meaning: "alfāni — Two thousand" },
+                    { arabic: "مَلْيُونٌ", meaning: "malyūnun — Million" }, { arabic: "مِلْيَارٌ", meaning: "milyārun — Billion" },
+                    { arabic: "عَدَدٌ", meaning: "'adadun — Number" }, { arabic: "رَقْمٌ", meaning: "raqmun — Digit/Numeral" }
                 ]
             }
         ]
-    },
-    tasks: [
-        {
-            id: "20-1",
-            type: "multiple-choice",
-            question: "Choose correct phrase: '3 female students'",
-            options: ["ثَلَاثَةُ طَالِبَاتٍ", "ثَلَاثُ طَالِبَاتٍ", "ثَلَاثُ طَالِبَةٍ"],
-            correctAnswer: "ثَلَاثُ طَالِبَاتٍ"
-        },
-        {
-            id: "20-2",
-            type: "word-scramble",
-            question: "Arrange: 'Seven nights' (Layalin - pl. of Layla, fem.)",
-            arabic: "سَبْعُ لَيَالٍ",
-            scrambledWords: ["لَيَالٍ", "سَبْعُ"],
-            correctAnswer: "سَبْعُ لَيَالٍ"
-        },
-        {
-            id: "20-3",
-            type: "multiple-choice",
-            question: "«5 cars» (Sayyarah - fem.)",
-            options: ["خَمْسَةُ سَيَّارَاتٍ", "خَمْسُ سَيَّارَاتٍ", "خَمْسُ سَيَّارَةٍ"],
-            correctAnswer: "خَمْسُ سَيَّارَاتٍ"
-        },
-        {
-            id: "20-4",
-            type: "matching",
-            question: "Match number and counted noun",
-            pairs: [
-                { "arabic": "ثَلَاثُ", "meaning": "Girls (Banat)" },
-                { "arabic": "ثَلَاثَةُ", "meaning": "Boys (Awlad - masc!)" },
-                { "arabic": "عَشْرُ", "meaning": "Women (Nisa')" },
-                { "arabic": "عَشَرَةُ", "meaning": "Men (Rijal - masc!)" }
-            ]
-        },
-        {
-            id: "20-5",
-            type: "multiple-choice",
-            question: "What is the gender of 'Ghuraf' (Rooms)?",
-            options: ["Masculine", "Feminine (sing. Ghurfa)", "Neuter"],
-            correctAnswer: "Feminine (sing. Ghurfa)"
-        },
-        {
-            id: "20-6",
-            type: "multiple-choice",
-            question: "How to write '8' for feminine counted noun?",
-            options: ["ثَمَانِيَةُ", "ثَمَانِي", "ثَمَانٍ"],
-            correctAnswer: "ثَمَانِي"
-        },
-        {
-            id: "20-7",
-            type: "word-scramble",
-            question: "Arrange: 'He has four sisters'",
-            arabic: "لَهُ أَرْبَعُ أَخَوَاتٍ",
-            scrambledWords: ["أَخَوَاتٍ", "أَرْبَعُ", "لَهُ"],
-            correctAnswer: "لَهُ أَرْبَعُ أَخَوَاتٍ"
-        },
-        {
-            id: "20-8",
-            type: "multiple-choice",
-            question: "Select correct form: '6 hours' (Hour - Sa'ah)",
-            options: ["سِتُّ سَاعَاتٍ", "سِتَّةُ سَاعَاتٍ", "سِتُّ سَاعَةٍ"],
-            correctAnswer: "سِتُّ سَاعَاتٍ"
-        },
-        {
-            id: "20-9",
-            type: "multiple-choice",
-            question: "«In the hospital are ten female doctors»",
-            options: ["فِي الْمُسْتَشْفَى عَشَرَةُ طَبِيبَاتٍ", "فِي الْمُسْتَشْفَى عَشْرُ طَبِيبَاتٍ", "فِي الْمُسْتَشْفَى عَشْرُ أَطِبَّاءَ"],
-            correctAnswer: "فِي الْمُسْتَشْفَى عَشْرُ طَبِيبَاتٍ"
-        },
-        {
-            id: "20-10",
-            type: "word-scramble",
-            question: "Arrange: 'We read 9 verses'",
-            arabic: "قَرَأْنَا تِسْعَ آيَاتٍ",
-            scrambledWords: ["تِسْعَ", "آيَاتٍ", "قَرَأْنَا"],
-            correctAnswer: "قَرَأْنَا تِسْعَ آيَاتٍ"
-        }
+    }, tasks: [
+        { id: "20-1", type: "multiple-choice", question: "The counted noun after 100 and 1000 is in which form?", options: ["Plural Majrūr", "Singular Manṣūb", "Singular Majrūr", "Plural Marfū'"], correctAnswer: "Singular Majrūr" },
+        { id: "20-2", type: "multiple-choice", question: "Do 100 and 1000 change for gender?", options: ["Yes, always", "No, they are invariable", "Only 100", "Only 1000"], correctAnswer: "No, they are invariable" },
+        { id: "20-3", type: "multiple-choice", question: "What is the dual of مِائَةٌ?", options: ["مِائَتَيْنِ", "مِائَتَانِ", "مِائَاتٌ", "مِائُونَ"], correctAnswer: "مِائَتَانِ" },
+        { id: "20-4", type: "multiple-choice", question: "How do you say 'three hundred'?", options: ["ثَلَاثَةُ مِائَةٍ", "ثَلَاثُمِائَةٍ", "ثَلَاثُونَ مِائَةً", "مِائَةٌ ثَلَاثَةٌ"], correctAnswer: "ثَلَاثُمِائَةٍ" },
+        { id: "20-5", type: "multiple-choice", question: "Translate: مِائَةُ كِتَابٍ", options: ["A hundred books", "One hundred books", "Ten books", "A thousand books"], correctAnswer: "One hundred books" },
+        { id: "20-6", type: "multiple-choice", question: "Translate: أَلْفُ طَالِبٍ", options: ["One hundred students", "One thousand students", "Ten students", "A million students"], correctAnswer: "One thousand students" },
+        { id: "20-7", type: "multiple-choice", question: "Translate: مِائَتَانِ وَخَمْسُونَ", options: ["One hundred fifty", "Two hundred fifty", "Two hundred five", "Two thousand fifty"], correctAnswer: "Two hundred fifty" },
+        { id: "20-8", type: "multiple-choice", question: "What does مِائَةٌ mean?", options: ["Ten", "One hundred", "One thousand", "One million"], correctAnswer: "One hundred" },
+        { id: "20-9", type: "multiple-choice", question: "What does أَلْفٌ mean?", options: ["One hundred", "One thousand", "Ten thousand", "One million"], correctAnswer: "One thousand" },
+        { id: "20-10", type: "multiple-choice", question: "What does مَلْيُونٌ mean?", options: ["Thousand", "Hundred thousand", "Million", "Billion"], correctAnswer: "Million" }
     ]
 };

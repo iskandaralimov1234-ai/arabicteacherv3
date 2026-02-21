@@ -23,10 +23,10 @@ export default function LessonView({ lesson, onStartQuiz }: LessonViewProps) {
         const parts = text.split(/(\*\*.*?\*\*|\*.*?\*)/g);
         return parts.map((part, i) => {
             if (part.startsWith('**') && part.endsWith('**')) {
-                return <strong key={i} className="text-emerald-400 font-black">{part.slice(2, -2)}</strong>;
+                return <strong key={i} className="text-emerald-400 font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.3)]">{part.slice(2, -2)}</strong>;
             }
             if (part.startsWith('*') && part.endsWith('*')) {
-                return <em key={i} className="text-emerald-200 not-italic font-medium bg-emerald-900/30 px-1 rounded">{part.slice(1, -1)}</em>;
+                return <em key={i} className="text-emerald-200 not-italic font-medium bg-emerald-900/30 px-1 rounded border border-emerald-500/20">{part.slice(1, -1)}</em>;
             }
             return part;
         });
@@ -114,12 +114,12 @@ export default function LessonView({ lesson, onStartQuiz }: LessonViewProps) {
                                 <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-widest mb-4">Examples</h3>
                                 <div className="grid gap-3 md:gap-4">
                                     {currentSection.examples.map((ex, i) => (
-                                        <div key={i} className="group relative p-5 bg-neutral-900/50 hover:bg-neutral-900 rounded-2xl border border-white/5 hover:border-white/10 transition-all">
-                                            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
-                                                <div className="text-neutral-400 font-medium text-base md:text-lg order-2 md:order-1">
+                                        <div key={i} className="group relative p-5 md:p-6 bg-neutral-900/40 hover:bg-neutral-800/80 backdrop-blur-sm rounded-2xl border border-white/5 hover:border-emerald-500/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_10px_30px_-15px_rgba(5,150,105,0.3)]">
+                                            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                                                <div className="text-neutral-300 font-medium text-base md:text-lg order-2 md:order-1 transition-colors group-hover:text-neutral-100">
                                                     {ex.meaning}
                                                 </div>
-                                                <div className="text-3xl md:text-4xl font-arabic tracking-wide self-end md:self-auto order-1 md:order-2 text-emerald-100" dir="rtl">
+                                                <div className="text-4xl md:text-5xl font-arabic tracking-wide leading-[1.8] self-end md:self-auto order-1 md:order-2 text-emerald-100 drop-shadow-[0_0_15px_rgba(16,185,129,0.2)]" dir="rtl">
                                                     {ex.arabic}
                                                 </div>
                                             </div>

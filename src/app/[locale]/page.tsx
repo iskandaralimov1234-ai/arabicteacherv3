@@ -14,9 +14,7 @@ import {
     Zap,
     Users,
     ShieldCheck,
-    Menu,
-    Github,
-    Twitter
+    Menu
 } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -334,17 +332,10 @@ export default function Home() {
                                             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                                                 <button
                                                     onClick={() => setView('path')}
-                                                    className="bg-emerald-600 hover:bg-emerald-500 px-8 py-4 rounded-2xl text-lg font-bold flex items-center justify-center space-x-2 transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(16,185,129,0.3)] group"
+                                                    className="bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 px-8 py-4 rounded-2xl text-lg font-bold flex items-center justify-center space-x-2 transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(16,185,129,0.3)] hover:shadow-[0_0_60px_rgba(16,185,129,0.5)] border border-emerald-400/20 group"
                                                 >
                                                     <span>{t('hero.start')}</span>
                                                     <ChevronRight className="group-hover:translate-x-1 transition-transform" />
-                                                </button>
-                                                <button
-                                                    onClick={() => window.open('https://github.com/iskandaralimov1234/arabicteacher', '_blank')}
-                                                    className="px-8 py-4 rounded-2xl text-lg font-bold flex items-center justify-center space-x-2 transition-all hover:bg-white/5 border border-transparent hover:border-white/10"
-                                                >
-                                                    <Github size={20} />
-                                                    <span>GitHub</span>
                                                 </button>
                                             </div>
                                         </motion.div>
@@ -431,12 +422,7 @@ export default function Home() {
                                     </div>
                                 </section>
 
-                                <footer className="py-12 mt-12 border-t border-white/5 text-center">
-                                    <div className="flex justify-center space-x-6 mb-8 text-neutral-500">
-                                        <Twitter className="hover:text-white cursor-pointer transition-colors" />
-                                        <Github className="hover:text-white cursor-pointer transition-colors" />
-                                        <Heart className="hover:text-white cursor-pointer transition-colors" />
-                                    </div>
+                                <footer className="py-12 mt-12 border-t border-white/5 text-center flex flex-col items-center">
                                     <p className="text-neutral-600 text-sm font-mono uppercase tracking-widest">{t('footer')}</p>
                                 </footer>
                             </div>
@@ -444,6 +430,17 @@ export default function Home() {
                     </AnimatePresence>
                 )}
             </div>
+
+            {/* Floating Feedback Button */}
+            <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSe8P30Sm0f8pjP-PglJqBS0PvLyuhaOaIVAY0j1UfXoI0GwMw/viewform?usp=dialog"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50 inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white px-5 py-3 rounded-2xl font-bold shadow-[0_4px_20px_rgba(16,185,129,0.3)] hover:shadow-[0_8px_30px_rgba(16,185,129,0.5)] border border-emerald-400/20 transition-all transform hover:-translate-y-1 active:scale-95"
+            >
+                <Heart size={18} className="text-emerald-100 hidden sm:block" />
+                <span className="text-sm">{t('feedback')}</span>
+            </a>
         </main>
     );
 }
